@@ -11,17 +11,19 @@
 <body>
 
 <div id="content">
+    <form class="launch-form">
     <div class="headshot">
     </div>
     <!--------------登录表---------------->
-    <form class="launch-form">
         <!----------账号输入框，类型为文本----------->
         <input type="text" placeholder="账号">
         <!----------密码输入框，类型为密码----------->
         <input type="password" placeholder="密码">
         <!---------登录、注册 提交按钮--------->
+        <div class="btn">
         <button type="submit" class="login" onclick="window.open('myBoard.html')">登录</button>
-        <button onclick="window.open('index.html')" >退出</button>
+        <button class="logout" onclick="window.open('index.html')" >退出</button>
+        </div>
     </form>
 
 

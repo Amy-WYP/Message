@@ -14,23 +14,34 @@ body
     height:98%;
     margin:10% auto;
     background-color: #fff;
-    opacity: 0.6;
+    opacity: 0.8;
     /*阴影*/
     box-shadow:0px 0px 10px 3px rgba(255,105,180,0.3);
 }
+/*头像*/
+.headshot
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    margin:20px auto;
+    border: 1px solid rgba(255,105,180, 0.4);
+}
 
 /*登录：窗体*/
-form {
+form
+{
     padding: 20px 0;
     position: relative;
     z-index: 2;
 }
 /*输入框：账号、密码*/
-form input {
+form input
+{
     border: 1px solid rgba(255,105,180, 0.4);
     background-color: rgba(255, 255, 255, 0.2);
     width: 50%;
-    height: 5%;
+    height: 30px;
     border-radius: 3px;
     padding: 1%;
     margin: 0 auto 2% auto;
@@ -40,35 +51,53 @@ form input {
     color: rgba(255, 52, 179, 0.6);
     font-weight: 300;
 }
-form input:hover {
-    background-color: rgba(255,105,180,0.1);
+form input:hover
+{
+    background-color: #FFF0F5;
+
 }
-form input:focus {
+form input:focus
+{
     background-color: white;
     width: 60%;
     color:#EE1289;
+    outline: none;
+    box-shadow:0px 0px 10px 2px rgba(255,105,180,0.3) inset;
 
 }
-body input-placeholder {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: white;
-    opacity: 1;
-    font-weight: 300;
-}
 /*按钮：登录、注册*/
-form button {
+.btn
+{
+    width: 48%;
+    height: 45px;
+    margin:auto;
+}
+form button
+{
     background-color:#FFF0F5;
-    border: 0;
+    border: 1px solid rgba(255,105,180, 0.4);
     color:#EE1289;
     border-radius: 5px;
-    width: 15%;
+    width: 40%;
+    height: 100%;
     cursor: pointer;
     font-size: 18px;
     padding: 1% 0;
     margin: 0 1%;
 }
-form button:hover {
+form button:hover
+{
     background-color: white;
-    box-shadow:0px 0px 10px 3px rgba(255,105,180,0.2);
+    border: none;
+    box-shadow:0px 0px 10px 3px rgba(255,105,180,0.3);
 }
+.login
+{
+    float: left;
+}
+.logout
+{
+    float: right;
+}
+
 
