@@ -1,0 +1,40 @@
+.Logo
+{
+    width: 60px;
+    height: 55px;
+}
+.head [title="news"]
+{
+    position: absolute;
+    margin-top: -4%;
+    margin-left: 62%;
+}
+.icon
+{padding: 0;}
+.top
+{height:4%;margin-bottom: 1%;padding-left: 0;}
+.top [title="return"]
+{
+    padding-top:7px;
+    padding-left: 15px;
+    margin-left: 4%;
+    margin-top: 1%;
+}
+.top [title="iw"]
+{
+    width: 57.4%;
+    height: 4%;
+    position: absolute;
+    margin-left: 7.2%;
+    margin-top: -3%;
+    padding-top: 8px;
+    border: 1px solid #666666;
+}
+.top [title="w"]
+{
+    width: 24px;
+    height: 24px;
+    float: right;
+    padding-right: 1%;
+    margin-top: -5px;
+}

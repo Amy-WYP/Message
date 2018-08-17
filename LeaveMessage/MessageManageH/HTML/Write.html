@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/Write.css">
     <script src="js/JS.js"></script>
-    </head>
+
+    <link href="css/toastr.min.css" rel="stylesheet" />
+    <script src="js/toastr.min.js"></script>
+</head>
 </html>
 <body>
 
@@ -20,14 +23,8 @@
 
     <!-------------------------头部---------------------------->
     <div class="top">
-        <div >
-            <a href="index.html" title="return">
-                <img src="img/返回猫.png" class="icon"/>
-            </a>
-            <a title="leave" >
-                <input type="image" src="img/提交.png"  class="icon" onclick="submitText('TextArea')"/>
-            </a>
-        </div>
+            <input type="image" src="img/返回猫.png" title="return" class="icon" onclick="javascript:history.back(-1);"/>
+            <input type="image" src="img/提交.png"  title="leave" class="icon" onclick="submitText('TextArea')"/>
     </div>
 
 <div>
@@ -39,17 +36,53 @@
     <!----留言板---->
     <textarea id="TextArea" ></textarea>
     <!----签名------>
-    <div class="note">
+    <form class="note">
         <img src="img/签名.png" />
         <a>
-    <input type="text" placeholder="签名" id="name" onmouseover="TMouseover()"/>
+    <input type="text" placeholder="签名" id="name"
+           autocomplete="off" onmouseover="TMouseover()"/>
         </a>
-    </div>
+    </form>
         <!----留言板修饰-->
     <div class="decoration">
+        <div class="dec-menu">
         <input type="image" src="img/表情.png" />
         <input type="image" src="img/特效.png" />
         <input type="image" src="img/color.png" />
+        </div>
+        <table>
+        <tr class="dec-line">
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+            <td><input type="image" src="img/表情.png" /></td>
+
+
+
+
+        </tr>
+
+            <tr class="dec-line">
+                <td><input type="image" src="img/表情.png" /></td>
+                <td><input type="image" src="img/表情.png" /></td>
+                <td><input type="image" src="img/表情.png" /></td>
+            </tr>
+            <tr class="dec-line">
+                <td><input type="image" src="img/表情.png" /></td>
+                <td><input type="image" src="img/表情.png" /></td>
+                <td><input type="image" src="img/表情.png" /></td>
+            </tr>
+
+
+
+        </table>
+
     </div>
 </input>
 
@@ -58,7 +91,7 @@
     <p id="msg"></p>
 
 
-
+</div>
 
 </div>
 </body>

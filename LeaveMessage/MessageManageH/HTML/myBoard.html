@@ -2,9 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的留言板</title>
+    <link href="http://www.bootcss.com/p/layoutit/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/myBoard.css">
+    <script src="js/JS.js"></script>
 </head>
 <body>
 
+<div id="content">
+
+    <!----------------------------顶部--------------------------->
+    <div class="head">
+        <img src="img/主页猫.png" href="index.html" class="Logo"/>
+        <div>
+        <input type="image" src="img/未读.png" title="news" class="icon" onclick="location.href='Manager.html'" />
+        </div>
+    </div>
+    <!-------------------------头部---------------------------->
+    <div class="top">
+        <input type="image" src="img/走猫.png" title="return" class="icon" onclick="location.href='index.html'"/>
+
+            <div type="text" title="iw">
+            <input type="image" src="img/编辑.png" title="w" class="icon" onclick="location.href='Write.html'"/>
+            </div>
+
+    </div>
+    <!----------------------留言板内容-------------------------------->
+    <div class="board">
+        <ul>
+
+            <li class="board-item">
+                <div class="board-top">
+                <div class="board-top-left">
+                    <img src="img/小猫.png" class="headshot"/>
+                    <span id="username">用户名</span>
+                    <span id="time">2018-08-16</span>
+                </div>
+                    <div class="board-top-right">
+                        <input type="image" src="img/删除.png" class="del">
+                </div>
+
+                <div id="board-content">
+                </div>
+            </li>
+
+
+
+
+
+
+
+        </ul>
+    </div>
+    <!-----------------------底部----------------------------->
+    <div class="foot">
+        <div class="foot-jump">
+            <img title="leftTurn" src="img/跳转到.png"/>
+            <span>1</span>
+            <span>/</span>
+            <span>0</span>
+            <img title="rightTurn" src="img/跳转到.png"/>
+            <input type="text" />
+            <input type="image" src="img/跳转.png" class="toJump"/>
+        </div>
+    </div>
+
+    <!------------------@版权所有------------------------------>
+    <div class="copyright">
+        <p>桑梓实验室 @1725121025 Amy-WYP</p>
+    </div>
+
+
+</div>
 </body>
 </html>

@@ -1,7 +1,3 @@
-function TMouseover() {
-    this.style.borderColor='black';
-    this.style.backgroundColor='red'
-}
 //留言
 function submitText(text) {
     //获取留言信息：textarea中的value
@@ -11,10 +7,18 @@ function submitText(text) {
     //将时间戳作为键值，textarea的value值作为键值的内容保存在本地数据库
     localStorage.setItem(time,data);
     //保存成功后提示成功
-    alert("留言成功");
+    console.log("留言成功,请等待审核");
+    toastr.success('提交数据成功');
     //设置loadStorage函数的传参（ID值）
     loadMessage('msg');
+
+    setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+        //window.location.reload();//页面刷新
+        window.location.href='index.html';
+    },2000);
+
 }
+
 function loadMessage(id) {
     var result = '<table>';
     //遍历本地数据所有内容
@@ -42,5 +46,5 @@ function loadMessage(id) {
 function clearText() {
     //清除本地储存所有内容
     localStorage.clear();
-    alert("清除完毕");
+    console.log("清除完毕");
 }
