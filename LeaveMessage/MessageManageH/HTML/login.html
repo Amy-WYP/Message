@@ -7,14 +7,36 @@
     <title>登录</title>
     <link rel="stylesheet" href="css/login.css">
     <script src="js/JS.js"></script>
+    <!--樱花特效-->
+    <link rel="stylesheet" href="css/yinghua.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/yinghua.js"></script>
 </head>
 <body>
+<!--------------------樱花特效------------------------------------>
+<div class="cherry">
+    <img id="yinghua" src="img/yinghua.png"/>
+</div>
+<script>
+    $(function(){
+        $('.cherry').Cherry_Blossoms({
+            is_Cherry:true,//是否生成樱花
+            image_min:10,//花瓣最小宽度和高度
+            image_max:50,//花瓣最大宽度和高度
+            time_min:10000,//花瓣最快下坠时间
+            time_max:15000,//花瓣最慢下坠时间
+            interval:500//花瓣生成时间间隔
+        })
+    })
+</script>
+
+
 
 <div id="content">
-    <form class="launch-form">
-    <div class="headshot">
-    </div>
     <!--------------登录表---------------->
+    <form class="launch-form">
+        <!---------------------------->
+        <div class="headshot"><img src="img/粉猫.png"/></div>
         <!----------账号输入框，类型为文本----------->
         <input type="text" placeholder="账号">
         <!----------密码输入框，类型为密码----------->

@@ -8,7 +8,6 @@ function submitText(text) {
     localStorage.setItem(time,data);
     //保存成功后提示成功
     console.log("留言成功,请等待审核");
-    toastr.success('提交数据成功');
     //设置loadStorage函数的传参（ID值）
     loadMessage('msg');
 

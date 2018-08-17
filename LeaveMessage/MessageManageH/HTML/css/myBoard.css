@@ -13,7 +13,7 @@
 {padding: 0;}
 .top
 {height:4%;margin-bottom: 1%;padding-left: 0;}
-.top [title="return"]
+.top [title="leave"]
 {
     padding-top:7px;
     padding-left: 15px;
@@ -30,7 +30,7 @@
     padding-top: 8px;
     border: 1px solid #666666;
 }
-.top [title="w"]
+.top [title="write"]
 {
     width: 24px;
     height: 24px;

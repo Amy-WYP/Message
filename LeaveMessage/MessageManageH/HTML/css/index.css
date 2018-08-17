@@ -7,6 +7,10 @@ body
     background-size:cover;
     background-attachment:fixed;
 }
+input:focus
+{
+   outline: none;
+}
 #content
 {
     width:70%;
@@ -120,8 +124,8 @@ body
 }
 .foot-jump
 {
-    width: 25%;
-    margin-left: 75%;
+    width: 30%;
+    margin-left: 70%;
 }
 .foot-jump img
 {

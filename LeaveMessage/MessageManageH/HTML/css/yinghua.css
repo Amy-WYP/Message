@@ -1,15 +1,17 @@
 body{
     /*max-width:100%;*/
-    background: black;
     box-sizing: border-box;
+    /*因为樱花是落下的时间和水平位置是随机的，有可能会溢出，此处overflow设为hidden*/
+    overflow: hidden;
 }
-img{
+.cherry img{
     width:50px;
     height:50px;
-    margin-top:-5%;
+    /*此处将图片隐藏起来*/
+    margin-top:-10%;
     opacity: 0.5;
     position: absolute;
-    z-index: 99;
+    z-index: 3;
     /*-webkit-transform:rotate3d(.6,1,.6,45deg);*/
     /*-moz-transform:rotate3d(.6,1,.6,45deg);*/
     /*-ms-transform:rotate3d(.6,1,.6,45deg);*/
