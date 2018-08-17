@@ -36,16 +36,27 @@
 <div class="message">
     <!--对文本域进行修饰-->
     <!--<textarea id="TextArea" onmouseover="TMouseover()">-->
+    <!----留言板---->
     <textarea id="TextArea" ></textarea>
-    <!--清除记录-->
-    <input type="button" value="清空记录" onclick="clearText('msg')">
-    <p id="msg"></p>
-</div>
+    <!----签名------>
+    <div class="note">
+        <img src="img/签名.png" />
+        <a>
+    <input type="text" placeholder="签名" id="name" onmouseover="TMouseover()"/>
+        </a>
+    </div>
+        <!----留言板修饰-->
     <div class="decoration">
         <input type="image" src="img/表情.png" />
         <input type="image" src="img/特效.png" />
         <input type="image" src="img/color.png" />
     </div>
+</input>
+
+    <!--清除记录-->
+    <input type="button" value="清空记录" onclick="clearText('msg')">
+    <p id="msg"></p>
+
 
 
 
