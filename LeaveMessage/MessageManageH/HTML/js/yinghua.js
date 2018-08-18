@@ -9,9 +9,9 @@ $(function() {
                 ele:'.cherry',//切换对象
                 is_Cherry:true,//是否生成樱花
                 image_min:10,//花瓣最小宽度和高度
-                image_max:45,//花瓣最大宽度和高度
-                time_min:8000,//花瓣最快下坠时间
-                time_max:15000,//花瓣最慢下坠时间
+                image_max:40,//花瓣最大宽度和高度
+                time_min:7000,//花瓣最快下坠时间
+                time_max:10000,//花瓣最慢下坠时间
                 interval:200//花瓣生成时间间隔
             };
             //定义默认参数，其中若在html页面设置了param是，这里的params会替换defaults
@@ -54,7 +54,7 @@ $(function() {
                     });
                     $('#yinghua:last-child').animate({
                             left: -15 + '%',
-                            top: 150 + '%',
+                            top: 120 + '%',
                             deg: -540
                         },
                         {

@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
+
     <link rel="stylesheet" href="css/login.css">
     <script src="js/JS.js"></script>
+
     <!--樱花特效-->
     <link rel="stylesheet" href="css/yinghua.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/yinghua.js"></script>
+
 </head>
 <body>
 <!--------------------樱花特效------------------------------------>
@@ -29,24 +32,53 @@
         })
     })
 </script>
-
-
+<!---------------------------------------------------登陆注册切换---------------------------------------------->
+<script type="text/javascript">
+    function isSwitch(hidMenu)
+    {
+        var hMenu=document.getElementById(hidMenu);
+        hMenu.style.display=(hMenu.style.display=='block')?'none':'block';
+        var sMenu=document.getElementById("launch-form");
+        sMenu.style.display=(sMenu.style.display=='none')?'block':'none';
+    }
+</script>
 
 <div id="content">
-    <!--------------登录表---------------->
-    <form class="launch-form">
+    <!------------------------------------------------登录表---------------------------------------------------->
+    <div id="launch-form">
+    <form>
+        <img src="img/加.png" class="register" onclick="isSwitch('register-form')"/>
         <!---------------------------->
         <div class="headshot"><img src="img/粉猫.png"/></div>
         <!----------账号输入框，类型为文本----------->
-        <input type="text" placeholder="账号">
+        <input type="text" placeholder="id">
         <!----------密码输入框，类型为密码----------->
-        <input type="password" placeholder="密码">
+        <input type="password" placeholder="password">
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
-        <button type="submit" class="login" onclick="window.open('myBoard.html')">登录</button>
-        <button class="logout" onclick="window.open('index.html')" >退出</button>
+        <button type="submit" class="login" onclick="window.open('myBoard.html')">Login</button>
+        <button class="logout" onclick="window.open('index.html')">Quit</button>
         </div>
     </form>
+    </div>
+
+    <!-------------------------------------------------注册表--------------------------------------------------->
+    <div id="register-form">
+    <form>
+        <!---------------------------->
+        <div class="headshot"><img src="img/粉猫.png"/></div>
+        <input type="text" placeholder="id">
+        <!----------账号输入框，类型为文本----------->
+        <input type="text" placeholder="name">
+        <!----------密码输入框，类型为密码----------->
+        <input type="password" placeholder="password">
+        <!---------登录、注册 提交按钮--------->
+        <div class="btn">
+            <button class="login" onclick="isSwitch('launch-form')">Back</button>
+            <button class="logout" onclick="window.open('index.html')" >Sign Up</button>
+        </div>
+    </form>
+    </div>
 
 
 </div>

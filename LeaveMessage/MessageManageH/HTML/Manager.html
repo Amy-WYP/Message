@@ -7,7 +7,7 @@
     <title>留言审核</title>
     <link href="http://www.bootcss.com/p/layoutit/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/myBoard.css">
+    <link rel="stylesheet" href="css/myBoard-Manager.css">
     <script src="js/JS.js"></script>
 </head>
 <body>
@@ -22,9 +22,14 @@
         </div>
     </div>
     <!-------------------------头部---------------------------->
+   <style>
+    .top [title="return"]
+    {
+    margin-left: 4%;
+    }
+   </style>
     <div class="top">
         <input type="image" src="img/返回猫.png" title="return" class="icon" onclick="javascript:history.back(-1);"/>
-
     </div>
     <!----------------------留言板内容-------------------------------->
     <div class="board">
@@ -38,8 +43,8 @@
                         <span id="time">2018-08-16</span>
                     </div>
                     <div class="board-top-right">
-                        <input type="image" src="img/叉.png" class="miss">
-                        <input type="image" src="img/勾.png" class="pass">
+                        <input type="image" src="img/叉.png" title="miss">
+                        <input type="image" src="img/勾.png" title="pass">
                     </div>
                 </div>
 
@@ -58,13 +63,13 @@
     <!-----------------------底部----------------------------->
     <div class="foot">
         <div class="foot-jump">
-            <img title="leftTurn" src="img/跳转到.png"/>
+            <input type="image" src="img/跳转到.png" title="previous"/>
             <span>1</span>
             <span>/</span>
             <span>0</span>
-            <img title="rightTurn" src="img/跳转到.png"/>
+            <input type="image" src="img/跳转到.png" title="next"/>
             <input type="text" />
-            <input type="image" src="img/跳转.png" class="toJump"/>
+            <input type="image" src="img/跳转.png" title="jump"/>
         </div>
     </div>
 

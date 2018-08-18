@@ -8,8 +8,8 @@
         * {
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
-
         #mycanvas {
             background: black;
         }
@@ -44,7 +44,9 @@
     //画雪花
     function DrawSnow() {
         ctx.clearRect(0, 0, wid, hei);
-        ctx.fillStyle = "white";
+        //填充圆形
+        //ctx.fillStyle = "white";
+        ctx.fillStyle = "rgb(255,255,255,0.85)";
         ctx.beginPath();
         for (var i = 0; i < snow; i++) {
             var p = arr[i];

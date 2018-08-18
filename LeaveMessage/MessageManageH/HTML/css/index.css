@@ -1,3 +1,12 @@
+/*
+ index.css，主要修饰index.html，同时也是其他html的基础样式。
+ 其他.html文件调用本文件时放在其他外联部样式前面，放在前面的css能被后面的css覆盖。
+*/
+
+/**
+ *
+ 以下是公共部分
+*/
 body
 {
     height:1000px;
@@ -7,9 +16,14 @@ body
     background-size:cover;
     background-attachment:fixed;
 }
+/*去掉所有input聚焦时的自动出现的蓝色外边框*/
 input:focus
 {
    outline: none;
+}
+button
+{
+    outline: none;
 }
 #content
 {
@@ -18,8 +32,13 @@ input:focus
     margin:1% auto;
     background-color: #fff;
     /*阴影*/
-    box-shadow:0px 0px  10px 5px #666;
+    box-shadow:0px 0px 10px 5px #666;
 }
+
+/**
+ *
+ 顶部和头部 公共部分
+*/
 .head
 {
     width: 100%;
@@ -47,6 +66,11 @@ input:focus
     width: 30px;
     height: 30px;
 }
+
+/**
+ *
+ 留言板 公共部分
+*/
 .board
 {
     width: 85%;
@@ -102,7 +126,7 @@ input:focus
     position: absolute;
     margin-left:5px;
     margin-top: 25px;
-    font-size: 12px;
+    font-size: 10px;
     color:#888;
 }
 .headshot
@@ -117,6 +141,11 @@ input:focus
     height: 66%;
     margin: auto;
 }
+
+/**
+ *
+ 底部跳页 公共部分
+*/
 .foot
 {
     height: 4%;
@@ -127,13 +156,13 @@ input:focus
     width: 30%;
     margin-left: 70%;
 }
-.foot-jump img
+.foot-jump input
 {
     width: 20px;
     height: 20px;
 }
 /*箭头：旋转180*/
-.foot-jump img[title="leftTurn"]
+.foot-jump input[title="previous"]
 {
     transform: rotate(180deg);
 }
@@ -147,13 +176,18 @@ input:focus
     margin-top: 10px;
     margin-left: 40px;
 }
-.toJump
+.foot-jump input[title="jump"]
 {
     width:25px;
     height:25px;
     border:none;
     margin-left: 10px;
 }
+
+/**
+ *
+ 版权 公共部分
+*/
 .copyright
 {
     height: 3%;
@@ -161,4 +195,5 @@ input:focus
     line-height:30px;
     color: #aaa;
     background-color: #f0f0f0;
+    float: bottom;
 }

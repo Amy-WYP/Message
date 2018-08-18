@@ -1,3 +1,12 @@
+/*
+修饰Write.html, Info.html
+*/
+
+/**
+ *
+ 公共部分
+*/
+
 body
 {height:500px;}
 .head
@@ -8,11 +17,16 @@ body
 {
    margin-left: 4%;
 }
-.top [title="leave"]
+.top [title="submit"]
 {
     float: right;
     margin-right: 4%;
 }
+
+/**
+ *
+ 以下是Write.html 留言
+*/
 .message
 {
     width: 85%;
@@ -28,6 +42,7 @@ body
     /*内部阴影*/
     box-shadow:0 0 0 1px #432744;
 }
+/*签名*/
 .note
 {
     width:150px;
@@ -35,20 +50,21 @@ body
     border:1px solid #8B4513 ;
     float: right;
     margin-top: 5px;
-
+    padding: 0;
 }
 .note input
 {
     -webkit-appearance: none;
     outline: none;
     width: 125px;
-    height: 21px;
+    height: 22px;
     margin-left: 23px;
     position: absolute;
     border: 1px solid #e5e5e5;
     opacity: 0.6;
     text-align: center;
     cursor: pointer;
+    vertical-align:middle;
     /*-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;*/
     /*-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
     /*transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s*/
@@ -64,11 +80,12 @@ body
 }
 .note img
 {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     position: absolute;
-    margin-top: 3px;
+    vertical-align:middle;
 }
+/*留言修饰*/
 .decoration
 {
     height: 50%;
@@ -112,5 +129,107 @@ body
     /*border:1px solid yellow;*/
 }
 
-.copyright
-{height: 6%;}
+
+/**
+ *
+ Info.html 个人信息
+*/
+
+.uPass {
+    border: 0px;
+    outline-color: invert;
+    outline-style: none;
+    outline-width: 0px;
+    cursor: pointer;
+    background: transparent;
+}
+#ShowInfo
+{
+    width: 50%;
+    height: 60%;
+    display: block;
+    margin:auto;
+}
+form
+{
+    height: 90%;
+    margin-top: 5%;
+    background: #f5f5f5;
+    padding-top: 5%;
+
+}
+.form-group
+{
+    width: 50%;
+    height: 30px;
+    margin:6%  auto;
+}
+form img
+{
+    width: 20px;
+    height: 20px;
+    vertical-align:middle
+}
+form span
+{
+    width: 80%;
+    height: 25px;
+    padding-top: 5px;
+    float: right;
+    margin-right: 5%;
+}
+form button
+{
+    background-color: rgba(0,0,0, 0.01);
+    border: 1px solid rgba(0,0,0, 0.4);
+    border-radius: 5px;
+    width: 33%;
+    height: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 1% 0;
+    margin: auto;
+}
+form button:hover
+{
+    background-color: white;
+    border: none;
+    box-shadow:0 0 10px 3px rgba(0,0,0,0.3);
+}
+.mo
+{
+    margin-left: 35%;
+}
+.re
+{
+    float: left;
+    margin-left: 10%;
+}
+.co
+{
+    float: right;
+    margin-right: 10%;
+}
+
+#Modify input
+{
+    -webkit-appearance: none;
+    border: 1px solid black;
+    height: 29px;
+    text-align: center;
+    vertical-align:middle;
+}
+#Modify
+{
+    width: 50%;
+    height: 60%;
+    display: none;
+    margin:auto;
+}
+#Modify img
+{
+    border:1px solid #e5e5e5 ;
+    padding: 5px 5px 5px 5px;
+    background-color: white;
+
+}
