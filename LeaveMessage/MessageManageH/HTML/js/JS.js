@@ -6,10 +6,12 @@ function submitText(text) {
     var time =new Date().getTime();
     //将时间戳作为键值，textarea的value值作为键值的内容保存在本地数据库
     localStorage.setItem(time,data);
-    //保存成功后提示成功
-    console.log("留言成功,请等待审核");
+    // //保存成功后提示成功
+    // console.log("留言成功,请等待审核");
     //设置loadStorage函数的传参（ID值）
     loadMessage('msg');
+    sub();
+
 
     setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
         //window.location.reload();//页面刷新
@@ -39,11 +41,29 @@ function loadMessage(id) {
     var target = document.getElementById(id);
     //将所有内容添加到元素中显示
     target.innerHTML = result;
-
 }
 
 function clearText() {
     //清除本地储存所有内容
     localStorage.clear();
     console.log("清除完毕");
+}
+
+//数据提交到后端
+function sub(){
+    var Time =new Date().getTime();
+    var json =
+        {
+            "name":$("#name").val(),
+            "message":$("#TextArea").val(),
+            "messageType":0,
+            "time":Time
+            //"source":,
+            // "emo":,
+            // "background":,
+            // "fontColor":
+        };
+    "http://#".submit(json,function(data,msg){
+        $.msg("留言成功!请等待审核");
+    });
 }

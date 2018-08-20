@@ -32,50 +32,6 @@
         <input type="image" src="img/返回猫.png" title="return" class="icon" onclick="javascript:history.back(-1);"/>
     </div>
 
-    <!-----------------------------------js: 获取账户名和密码----------------------------------------->
-    <script type="text/javascript">
-        //获取发布模块类型
-        var uN="";
-        var uP="";
-        var uS="";
-        var uB="";
-        function pageReady()
-        {
-            ("http://#/user").
-            query(function (data){
-                    $.each(data,function(i,o){
-                        uN=o.user_name;
-                        uP="<input type='password'  value='o.password' class='uPass' readonly />";
-                    });
-
-                    $("#uName").html(uN);
-                    $("#uPassword").html(uP);
-
-                    //修改时显示原信息
-                    document.getElementById("Name").value=uN;
-
-                }
-            )
-        }
-
-    </script>
-    <!------------------------------------js：修改信息------------------------------------------------------->
-    <script type="text/javascript">
-        //获取发布模块类型
-        function updateInfo(){
-            var json = {
-                "user_name":$("#Name").val(),
-                "password": $("#Password").val(),
-            };
-
-            "http://#/update".submit(json, function (data, msg) {
-                    $.msg("修改成功!" + "<br>" + "3秒后自动刷新");
-                    setTimeout(function () {  //使用  setTimeout（）方法设定定时3000毫秒
-                        window.location.reload();//页面刷新
-                    }, 3000);
-                });
-        }
-    </script>
     <!--------------------------------------------------------------个人信息----------------------------------------------->
         <div id="ShowInfo">
             <!------------显示的个人信息-------------->
@@ -83,7 +39,7 @@
                 <!-------------账号-------------->
                 <div class="form-group">
                     <img src="img/账号.png" />
-                    <span id="uId">1725121025</span>
+                    <span id="uId"></span>
                     </div>
                 <!-------------用户名-------------->
                 <div class="form-group">
@@ -119,31 +75,97 @@
                  <!-------------密码-------------->
                  <div class="form-group">
                      <img src="img/密码确认.png" />
-                     <input type="password" id="Password" autocomplete="off" placeholder="again">
+                     <input type="password" id="pwa" autocomplete="off" placeholder="again">
                  </div>
                  <!---------------按钮-------------->
                  <div class="form-group">
                  <!-------------点击确认-------------->
-                     <button type="button" class="co" onclick="updateInfo()">Ok</button>
+                     <button type="button" class="co" onclick="jduge()">Ok</button>
                 <!------------点击返回--------------->
                      <button type="button" class="re" onclick="isHidden('Modify')">Back</button>
                   </div>
              </form>
         </div>
-
-
-    <!-------------------------------------------------隐藏js----------------------------------------->
-    <script type="text/javascript">
-        function isHidden(hidMenu)
-        {
-            var hMenu=document.getElementById(hidMenu);
-            hMenu.style.display=(hMenu.style.display=='block')?'none':'block';
-            var sMenu=document.getElementById("ShowInfo");
-            sMenu.style.display=(sMenu.style.display=='none')?'block':'none';
-        }
-    </script>
-
-
 </div>
+
+<!-------------------------已有信息和修改信息切换：隐藏--------------------------->
+<script type="text/javascript">
+    function isHidden(hidMenu)
+    {
+        var hMenu=document.getElementById(hidMenu);
+        hMenu.style.display=(hMenu.style.display=='block')?'none':'block';
+        var sMenu=document.getElementById("ShowInfo");
+        sMenu.style.display=(sMenu.style.display=='none')?'block':'none';
+    }
+</script>
+
+
+
+
+
+<!--前方大型翻车现场-->
+<!-----------------------------------js: 获取管理员用户名和密码----------------------------------------->
+<script type="text/javascript">
+    //获取发布模块类型
+    var uI="";
+    var uN="";
+    var uP="";
+    function pageReady()
+    {
+        ("http://#/user").
+        query(function (data){
+                $.each(data,function(i,o){
+                    uI=o.user_id;
+                    uN=o.name;
+                    uP="<input type='password'  value='o.password' class='uPass' readonly />";
+                });
+
+                //将获取到的id、name、password添加到信息表中对应的地方
+                $("#uId").html(uI);
+                $("#uName").html(uN);
+                $("#uPassword").html(uP);
+
+                //修改时显示原有账号信息
+                document.getElementById("Name").value=uN;
+            }
+        )
+    }
+
+</script>
+<!-----------------------------------js: 修改管理员用户名和密码----------------------------------------->
+<script type="text/javascript">
+
+    //判断两次密码是否相同
+    function jduge(p1,p2)
+    {
+        var p1=document.getElementById("pw").value;
+        var p2=document.getElementById("pwa").value;
+        if(p1==p2)
+        {
+            alert("成功");
+            updateInfo();
+        }
+        else
+        {
+            alert("两次输入的密码不同");
+        }
+    }
+
+    function updateInfo(){
+        var json = {
+            "user_name":$("#Name").val(),
+            "password": $("#pw").val(),
+        };
+
+        "http://#".submit(json, function (data, msg) {
+            $.msg("修改成功!" + "<br>" + "3秒后自动刷新");
+            setTimeout(function () {  //使用  setTimeout（）方法设定定时3000毫秒
+                window.location.reload();//页面刷新
+            }, 3000);
+        });
+    }
+</script>
+
+
 </body>
 </html>

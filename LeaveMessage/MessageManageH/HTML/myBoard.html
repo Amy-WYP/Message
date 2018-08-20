@@ -32,30 +32,23 @@
     </div>
     <!----------------------留言板内容-------------------------------->
     <div class="board">
-        <ul>
+        <ul id="BoardShow">
+            <!--<li class="board-item">-->
+                <!--<div class="board-top">-->
+                <!--<div class="board-top-left">-->
+                    <!--<img src="img/小猫.png" class="headshot"/>-->
+                    <!--<span id="username">用户名</span>-->
+                    <!--<span id="time">2018-08-16</span>-->
+                <!--</div>-->
+                    <!--<div class="board-top-right">-->
+                        <!--<input type="image" src="img/删除.png"  title="delete" class="del">-->
+                        <!--<input type="image" src="img/重新编辑.png" title="edit" class="del">-->
+                <!--</div>-->
+                <!--</div>-->
 
-            <li class="board-item">
-                <div class="board-top">
-                <div class="board-top-left">
-                    <img src="img/小猫.png" class="headshot"/>
-                    <span id="username">用户名</span>
-                    <span id="time">2018-08-16</span>
-                </div>
-                    <div class="board-top-right">
-                        <input type="image" src="img/删除.png"  title="delete" class="del">
-                        <input type="image" src="img/重新编辑.png" title="edit" class="del">
-                </div>
-
-                <div id="board-content">
-                </div>
-            </li>
-
-
-
-
-
-
-
+                <!--<div id="board-content">-->
+                <!--</div>-->
+            <!--</li>-->
         </ul>
     </div>
     <!-----------------------底部----------------------------->
@@ -76,7 +69,44 @@
         <p>桑梓实验室 @1725121025 Amy-WYP</p>
     </div>
 
-
 </div>
+
+
+<!-----------------------------从数据库获取留言------------------------------------->
+<script type="text/javascript">
+    //获取发布模块类型
+    function pageReady()
+    {
+        var  html="";
+        ("http://#").
+        query(function (data){
+                $.each(data,function(i,o){
+                    html+=" <li class='board-item'> " +
+                        "<div class='board-top'>" +
+                        "<div class='board-top-left'>" +
+                        "<img src='img/小猫.png' class='headshot'/>";
+                    html+=                "<span id='username'>"+o.name+"</span>";
+                    html+=                "<span id='time'>"+o.time+"</span>" +
+                        "</div>";
+                    html+="<div class='board-top-right'>" +
+                        "<input type='image' src='img/删除.png' title='delete' class='del'> " +
+                        "<input type='image' src='img/重新编辑.png' title='edit' class='del'>" +
+                        "</div>" +
+                        "</div>";
+                    html+="<div id='board-content'>"+o.message+"</div>";
+                    html+="</li>";
+                });
+                $("#BoardShow").html(html);
+            }
+        )
+    }
+
+</script>
+
+
+
+
+
+
 </body>
 </html>

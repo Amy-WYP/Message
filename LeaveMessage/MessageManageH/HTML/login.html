@@ -51,12 +51,14 @@
         <!---------------------------->
         <div class="headshot"><img src="img/粉猫.png"/></div>
         <!----------账号输入框，类型为文本----------->
-        <input type="text" placeholder="id">
+        <input type="text" placeholder="id" id="Uid">
         <!----------密码输入框，类型为密码----------->
-        <input type="password" placeholder="password">
+        <input type="password" placeholder="password" id="Psw">
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
-        <button type="submit" class="login" onclick="window.open('myBoard.html')">Login</button>
+        <button type="submit" class="login" onclick="function login() {
+
+        }">Login</button>
         <button class="logout" onclick="window.open('index.html')">Quit</button>
         </div>
     </form>
@@ -67,21 +69,102 @@
     <form>
         <!---------------------------->
         <div class="headshot"><img src="img/粉猫.png"/></div>
-        <input type="text" placeholder="id">
+        <input type="text" id="user_id" placeholder="id">
         <!----------账号输入框，类型为文本----------->
-        <input type="text" placeholder="name">
+        <input type="text" id="Name" placeholder="name">
         <!----------密码输入框，类型为密码----------->
-        <input type="password" placeholder="password">
+        <input type="password" id="Password" placeholder="password">
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
             <button class="login" onclick="isSwitch('launch-form')">Back</button>
-            <button class="logout" onclick="window.open('index.html')" >Sign Up</button>
+            <button class="logout" onclick="register()" >Sign Up</button>
         </div>
     </form>
     </div>
-
-
 </div>
+
+
+<!--前方尚在施工中-->
+<!----------------------------------将登陆界面的账号密码传给后台------------------------------------>
+<script type="text/javascript">
+
+    //用户不存在
+    function noUser() {
+        var mes=confirm("账号不存在！请点击右上角进行注册！");
+    }
+    //点击登录时进行账号识别
+    function login()
+    {
+        var user_id=document.getElementById('Uid').value;
+        var password=document.getElementById('Psw').value;
+
+        ("http://#?user_id="+user_id).query
+        (
+            function (data) {
+                if(data[0]==null)
+                {
+                    noUser();
+                }
+                else
+                {
+                    if(password!=data[0].password) {$.alert("用户不存在或密码错误！");}
+                    else
+                    {
+                        if(data[0].type==0)
+                        {   //写留言界面
+                            window.location.assign("Write.html")
+                        }
+                        else
+                        {   //管理员留言板界面
+                            window.location.assign("myBoard.html")
+                        }
+                    }
+                }
+            }
+        )
+    }
+</script>
+
+<!----------------------------------将登陆界面的账号密码传给后台------------------------------------>
+<script type="text/javascript">
+    function register(){
+            var json =
+                {
+                    "user_id":$("#user_id").val(),
+                    "name":$("#Name").val(),
+                    "password": $("#Password").val(),
+                };
+            if($("#Password").val()==null)
+            {
+                $.alert("密码不能为空",2);
+            }
+            else
+            {
+                "http://#".submit(json, function (data, msg)
+                    {
+                        if(data[0].type==1)
+                        {
+                            $.msg("注册成功!" + "<br>" + "1秒后自动跳转");
+                            setTimeout(function () {  //使用  setTimeout（）方法设定定时1000毫秒
+                                window.location.assign("login.html");//页面刷新
+                            }, 1000);
+                            // $.alert("注册成功！");
+                        }
+                        else
+                        {
+                            $.msg("账号已存在!请重新注册" + "<br>" + "1秒后自动跳转");
+                            setTimeout(function () {  //使用  setTimeout（）方法设定定时1000毫秒
+                                window.location.reload();//页面刷新
+                            }, 1000);
+                            // $.alert("注册成功！");
+                        }
+                    }
+                );
+            }
+    }
+    </script>
+
+
 
 
 </body>
