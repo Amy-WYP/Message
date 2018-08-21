@@ -1,10 +1,13 @@
-package com.MM.test;
+package MMServlet;
 import java.sql.*;
-
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 /**
  * 测试数据库
  */
-public class userInfo {
+public class userInfo extends HttpServlet{
     //mysql驱动包名
     private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
     //数据库连接地址
