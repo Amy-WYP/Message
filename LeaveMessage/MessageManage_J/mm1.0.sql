@@ -34,10 +34,10 @@ CREATE TABLE `uerinfo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for 用户表
+-- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `用户表`;
-CREATE TABLE `用户表` (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
   `user_id` int(10) NOT NULL COMMENT '账号',
   `type` varchar(10) DEFAULT NULL COMMENT '类型',
   `name` varchar(50) DEFAULT NULL COMMENT '用户名',
@@ -47,10 +47,10 @@ CREATE TABLE `用户表` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
--- Records of 用户表
+-- Records of user
 -- ----------------------------
-INSERT INTO `用户表` VALUES ('1725121000', '1', '管理员', '123456', null);
-INSERT INTO `用户表` VALUES ('1725121001', '0', '用户1号', '888888', null);
+INSERT INTO `user` VALUES ('1725121000', '1', '管理员', '123456', null);
+INSERT INTO `user` VALUES ('1725121001', '0', '用户1号', '888888', null);
 
 -- ----------------------------
 -- Table structure for 留言

@@ -11,7 +11,7 @@
 
     <!--樱花特效-->
     <link rel="stylesheet" href="css/yinghua.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/yinghua.js"></script>
 
 </head>
@@ -56,9 +56,7 @@
         <input type="password" placeholder="password" id="Psw">
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
-        <button type="submit" class="login" onclick="function login() {
-
-        }">Login</button>
+            <a type="submit" id="login" onclick="TouchToLogin()">Login</a>
         <button class="logout" onclick="window.open('index.html')">Quit</button>
         </div>
     </form>
@@ -71,7 +69,7 @@
         <div class="headshot"><img src="img/粉猫.png"/></div>
         <input type="text" id="user_id" placeholder="id">
         <!----------账号输入框，类型为文本----------->
-        <input type="text" id="Name" placeholder="name">
+        <input type="text" id="Name" placeholder="name" autocomplete="off">
         <!----------密码输入框，类型为密码----------->
         <input type="password" id="Password" placeholder="password">
         <!---------登录、注册 提交按钮--------->
@@ -85,47 +83,44 @@
 
 
 <!--前方尚在施工中-->
+
 <!----------------------------------将登陆界面的账号密码传给后台------------------------------------>
 <script type="text/javascript">
 
-    //用户不存在
-    function noUser() {
-        var mes=confirm("账号不存在！请点击右上角进行注册！");
-    }
+    // //用户不存在
+    // function noUser() {
+    //     var mes=confirm("账号不存在！请点击右上角进行注册！");
+    // }
     //点击登录时进行账号识别
-    function login()
-    {
-        var user_id=document.getElementById('Uid').value;
-        var password=document.getElementById('Psw').value;
 
-        ("http://#?user_id="+user_id).query
-        (
-            function (data) {
-                if(data[0]==null)
-                {
-                    noUser();
+    function TouchToLogin() {
+        var user_id = document.getElementById('Uid').value;
+        var password = document.getElementById('Psw').value;
+
+        ("http://localhost:8080/MMJ/Load?user_id=" + user_id).
+        query(
+        function (data) {
+            alert("http://localhost:8080/MMJ/Load?user_id="+user_id);
+                alert(data[0].password);
+
+            if (password != data[0].password) {
+                alert("用户不存在或密码错误！");
+            }
+            else {
+                if (data[0].type == 0) {   //写留言界面
+                    window.location.assign("Write.html")
                 }
-                else
-                {
-                    if(password!=data[0].password) {$.alert("用户不存在或密码错误！");}
-                    else
-                    {
-                        if(data[0].type==0)
-                        {   //写留言界面
-                            window.location.assign("Write.html")
-                        }
-                        else
-                        {   //管理员留言板界面
-                            window.location.assign("myBoard.html")
-                        }
-                    }
+                else {   //管理员留言板界面
+                    window.location.assign("myBoard.html")
                 }
+            }
             }
         )
     }
+
 </script>
 
-<!----------------------------------将登陆界面的账号密码传给后台------------------------------------>
+<!----------------------------------将注册界面的账号密码传给后台------------------------------------>
 <script type="text/javascript">
     function register(){
             var json =

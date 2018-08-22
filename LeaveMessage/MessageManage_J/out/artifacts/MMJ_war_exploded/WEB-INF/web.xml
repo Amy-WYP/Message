@@ -3,4 +3,60 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>test</servlet-name>
+        <servlet-class>MM.Load</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/Load</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>test2</servlet-name>
+        <servlet-class>MM.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>test2</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>test3</servlet-name>
+        <servlet-class>MM.STest</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>test3</servlet-name>
+        <url-pattern>/STest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>test4</servlet-name>
+        <servlet-class>MM.TryTest</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>test4</servlet-name>
+        <url-pattern>/TryTest</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+
 </web-app>
