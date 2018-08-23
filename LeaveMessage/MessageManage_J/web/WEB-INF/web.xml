@@ -7,20 +7,70 @@
     <servlet>
         <description>This is the description of my J2EE component</description>
         <display-name>This is the display name of my J2EE component</display-name>
-        <servlet-name>test</servlet-name>
-        <servlet-class>MM.Load</servlet-class>
+        <servlet-name>load</servlet-name>
+        <servlet-class>mm.load</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>test</servlet-name>
-        <url-pattern>/Load</url-pattern>
+        <servlet-name>load</servlet-name>
+        <url-pattern>/loading</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>userinfo</servlet-name>
+        <servlet-class>mm.user_info</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>userinfo</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>update</servlet-name>
+        <servlet-class>mm.update_info</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>show_board</servlet-name>
+        <servlet-class>mm.ShowBoard</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>show_board</servlet-name>
+        <url-pattern>/showboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>judge</servlet-name>
+        <servlet-class>mm.JudgeMessage</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>judge</servlet-name>
+        <url-pattern>/judge</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <description>This is the description of my J2EE component</description>
         <display-name>This is the display name of my J2EE component</display-name>
         <servlet-name>test2</servlet-name>
-        <servlet-class>MM.LoginServlet</servlet-class>
+        <servlet-class>mm.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -33,7 +83,7 @@
         <description>This is the description of my J2EE component</description>
         <display-name>This is the display name of my J2EE component</display-name>
         <servlet-name>test3</servlet-name>
-        <servlet-class>MM.STest</servlet-class>
+        <servlet-class>mm.STest</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -45,7 +95,7 @@
         <description>This is the description of my J2EE component</description>
         <display-name>This is the display name of my J2EE component</display-name>
         <servlet-name>test4</servlet-name>
-        <servlet-class>MM.TryTest</servlet-class>
+        <servlet-class>mm.TryTest</servlet-class>
     </servlet>
 
     <servlet-mapping>

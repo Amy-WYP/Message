@@ -5,14 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
-
     <link rel="stylesheet" href="css/login.css">
-    <script src="js/JS.js"></script>
+
+    <!--<script src="js/App_Download.js"></script>-->
+
+    <script src="js/app.js"></script>
 
     <!--樱花特效-->
     <link rel="stylesheet" href="css/yinghua.css">
-    <script src="js/jquery.min.js"></script>
+
     <script src="js/yinghua.js"></script>
+
 
 </head>
 <body>
@@ -51,12 +54,12 @@
         <!---------------------------->
         <div class="headshot"><img src="img/粉猫.png"/></div>
         <!----------账号输入框，类型为文本----------->
-        <input type="text" placeholder="id" id="Uid">
+        <input type="text" placeholder="id" id="uid">
         <!----------密码输入框，类型为密码----------->
-        <input type="password" placeholder="password" id="Psw">
+        <input type="password" placeholder="password" id="psw">
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
-            <a type="submit" id="login" onclick="TouchToLogin()">Login</a>
+            <button onclick="TouchToLogin()">Login</button>
         <button class="logout" onclick="window.open('index.html')">Quit</button>
         </div>
     </form>
@@ -71,7 +74,7 @@
         <!----------账号输入框，类型为文本----------->
         <input type="text" id="Name" placeholder="name" autocomplete="off">
         <!----------密码输入框，类型为密码----------->
-        <input type="password" id="Password" placeholder="password">
+        <input type="password" id="Pasw" placeholder="password">
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
             <button class="login" onclick="isSwitch('launch-form')">Back</button>
@@ -86,22 +89,18 @@
 
 <!----------------------------------将登陆界面的账号密码传给后台------------------------------------>
 <script type="text/javascript">
-
-    // //用户不存在
-    // function noUser() {
-    //     var mes=confirm("账号不存在！请点击右上角进行注册！");
-    // }
+function pageReady() {}
     //点击登录时进行账号识别
-
     function TouchToLogin() {
-        var user_id = document.getElementById('Uid').value;
-        var password = document.getElementById('Psw').value;
+        var user_id = document.getElementById('uid').value;
+        var password = document.getElementById('psw').value;
+//账号：1725121000 密码：123456
 
-        ("http://localhost:8080/MMJ/Load?user_id=" + user_id).
+        ("http://localhost:8080/messagemanage/load?user_id=" + user_id).
         query(
         function (data) {
-            alert("http://localhost:8080/MMJ/Load?user_id="+user_id);
-                alert(data[0].password);
+           // alert("http://localhost:8080/messagemanage/load?user_id="+user_id);
+            // alert(data[0].password);
 
             if (password != data[0].password) {
                 alert("用户不存在或密码错误！");
@@ -127,9 +126,9 @@
                 {
                     "user_id":$("#user_id").val(),
                     "name":$("#Name").val(),
-                    "password": $("#Password").val(),
+                    "password": $("#Pasw").val(),
                 };
-            if($("#Password").val()==null)
+            if($("#Pasw").val()==null)
             {
                 $.alert("密码不能为空",2);
             }
