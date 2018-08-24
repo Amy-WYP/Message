@@ -22,7 +22,7 @@ public class user_info extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sql1;
-
+        String mid;
         String user_id=null;                //账号
         String type=null;                 //类型
         String name=null;               //用户名
@@ -38,10 +38,9 @@ public class user_info extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("UTF-8");
 
-
+        mid=req.getParameter("user_id");
         sql1="SELECT user_id,type,name,password"
-                + "FROM user "
-                + "WHERE user.user_id="+ load.id+"";
+                + " FROM user WHERE user_id="+ load.id+"";
 
 
         try {
@@ -54,7 +53,15 @@ public class user_info extends HttpServlet {
 
             PrintWriter out = resp.getWriter();
 
-            out.print(te.User(sql1));
+            if(te.executeQuery(sql1))
+
+            {	 out.print(te.User(sql1));}
+
+            else
+            {
+                out.print(te.now());
+            }
+
 
         } catch (Exception e) {
             // TODO: handle exception

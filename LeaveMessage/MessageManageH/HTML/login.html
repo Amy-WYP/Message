@@ -56,13 +56,17 @@
         <!---------------------------->
         <div class="headshot"><img src="img/粉猫.png"/></div>
         <!----------账号输入框，类型为文本----------->
-        <input type="text" placeholder="id" id="uid">
+        <input type="text" placeholder="id" id="uid" autocomplete="off">
         <!----------密码输入框，类型为密码----------->
         <input type="password" placeholder="password" id="psw">
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
             <button class="login" onclick="TouchToLogin()">Login</button>
             <button class="logout" onclick="window.open('index.html')">Quit</button>
+            <!--跳转失败，这里只能open-->
+            <!--<button class="logout" onclick="TouchToQuit()">Quit</button>-->
+            <!--<button class="logout" onclick="location.href='index.html'">Quit</button>-->
+
         </div>
     </form>
     </div>
@@ -72,7 +76,7 @@
     <form>
         <!---------------------------->
         <div class="headshot"><img src="img/粉猫.png"/></div>
-        <input type="text" id="user_id" placeholder="id">
+        <input type="text" id="user_id" placeholder="id" autocomplete="off">
         <!----------账号输入框，类型为文本----------->
         <input type="text" id="Name" placeholder="name" autocomplete="off">
         <!----------密码输入框，类型为密码----------->
@@ -80,17 +84,15 @@
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
             <button class="login" onclick="isSwitch('launch-form')">Back</button>
-            <button class="logout" onclick="register()" >Sign Up</button>
+            <button class="logout" onclick="register()">Sign Up</button>
         </div>
     </form>
     </div>
 </div>
 
 <script type="text/javascript">
-    function pageReady() {
-    }
+    function pageReady() {}
 </script>
-
 <!----------------------------------登陆界面 账号密码识别------------------------------------>
 <script type="text/javascript">
     function TouchToLogin() {
@@ -108,6 +110,7 @@
                     $.each(data.jsonData, function (i, o) {
                         var Ps = o.password;
                         var Ty = o.type;
+                        var Na=o.name;
                         if (password != Ps) {
                             alert("用户不存在或密码错误");
                         }
@@ -126,34 +129,6 @@
 </script>
 
 
-<!----------------------------------登陆界面 账号密码识别------------------------------------>
-<!--<script type="text/javascript">-->
-    <!--function TouchToLogin() {-->
-        <!--var user_id = document.getElementById('uid').value;-->
-        <!--var password = document.getElementById('psw').value;-->
-        <!--var url="http://localhost:8080/messagemanage/load?user_id="+user_id;-->
-        <!--alert(url);-->
-        <!--$.getJSON(url,-->
-        <!--function (data) {-->
-            <!--alert(url+password);-->
-            <!--$.each(data.jsonData,function (i,o) {-->
-                <!--var Ps=o.password;-->
-                <!--var Ty=o.type;-->
-                <!--if (password != Ps) {-->
-                    <!--alert("用户不存在或密码错误");-->
-                <!--}-->
-                <!--else {-->
-                    <!--if (Ty==0) {   //写留言界面-->
-                        <!--window.location.assign("Write.html")-->
-                    <!--}-->
-                    <!--else {-->
-                        <!--window.location.assign("myBoard.html")-->
-                    <!--}-->
-                <!--}-->
-            <!--})-->
-        <!--})-->
-    <!--}-->
-<!--</script>-->
 
 
 <!--------------------------------将注册界面的账号密码传给后台---------------------------------->
@@ -208,8 +183,52 @@
     </script>
 
 <!---------------前方 CTRL+"/" 大型遗弃现场----------------->
+<!------------------------------------点击quit按钮 跳转至 默认界面----------------------------------->
+<!--<script type="text/javascript">-->
+    <!--function pageReady() {-->
+            <!--alert("正在返回主界面");-->
+            <!--TouchToQuit();-->
+    <!--}-->
+<!--</script>-->
 
-<!--------------------------------将登陆界面的账号密码传给后台：成功---------------------------------->
+<!--<script type="text/javascript">-->
+<!--function TouchToQuit(){-->
+<!--window.location.assign('index.html');-->
+<!--}-->
+<!--</script>-->
+
+
+<!----------------------------------登陆界面 账号密码识别   方法2：失败------------------------------------>
+<!--<script type="text/javascript">-->
+<!--function TouchToLogin() {-->
+<!--var user_id = document.getElementById('uid').value;-->
+<!--var password = document.getElementById('psw').value;-->
+<!--var url="http://localhost:8080/messagemanage/load?user_id="+user_id;-->
+<!--alert(url);-->
+<!--$.getJSON(url,-->
+<!--function (data) {-->
+<!--alert(url+password);-->
+<!--$.each(data.jsonData,function (i,o) {-->
+<!--var Ps=o.password;-->
+<!--var Ty=o.type;-->
+<!--if (password != Ps) {-->
+<!--alert("用户不存在或密码错误");-->
+<!--}-->
+<!--else {-->
+<!--if (Ty==0) {   //写留言界面-->
+<!--window.location.assign("Write.html")-->
+<!--}-->
+<!--else {-->
+<!--window.location.assign("myBoard.html")-->
+<!--}-->
+<!--}-->
+<!--})-->
+<!--})-->
+<!--}-->
+<!--</script>-->
+
+
+<!----------------------------------登陆界面 账号密码识别     方法3：失败------------------------------------>
 <!--<script type="text/javascript">-->
     <!--function pageReady() {}-->
     <!--//点击登录时进行账号识别-->
@@ -240,9 +259,9 @@
 <!--</script>-->
 
 <!----------------------------------将注册界面的账号密码传给后台------------------------------------>
-<!--------------------<script></script>里的内容 续接在  var params{}  语句之后 ---------------------------->
-<!--<script type="text/javascript">-->
+<!-------<script></script>里的内容 续接在  var params{}  语句之后 ----------------->
 
+<!--<script type="text/javascript">-->
 
     <!--//封装json：前端传注册信息      方法2：失败：-->
     <!--//以下为报错内容：failed to load htt Login.html:1-->
@@ -275,8 +294,6 @@
           <!--alert("提交数据失败")-->
         <!--}-->
     <!--})-->
-
-
 <!--</script>-->
 
 

@@ -31,8 +31,8 @@ public class load extends HttpServlet {
 		resp.setHeader("Access-Control-Allow-Credentials", "true");
 
 		id=req.getParameter("user_id");
-		
-		sql1="SELECT password,type,name FROM user where user_id ="+id+"";
+		sql1="SELECT * FROM user where user_id ="+id+"";
+//		sql1="SELECT password,type,name FROM user where user_id ="+id+"";
 
 		resp.setContentType("text/html;charset=utf-8");
 		resp.setCharacterEncoding("UTF-8");

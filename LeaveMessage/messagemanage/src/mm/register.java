@@ -62,7 +62,8 @@ public class register extends HttpServlet {
 
 		sql_register = "INSERT INTO user(user_id,type,name,password) VALUES("+id+",0,'"+name+"','"+password+"')";
 		//对应的更新语句
-		sql3="SELECT password,type,name FROM user where user_id ="+id+"";
+		sql3="SELECT * FROM user where user_id ="+id+"";
+//		sql3="SELECT password,type,name FROM user where user_id ="+id+"";
 
 		System.out.println(sql_register);
 

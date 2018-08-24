@@ -36,7 +36,8 @@ public class JudgeMessage extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("UTF-8");
 
-        sql_jduge = "SELECT * FROM  message where messageType=0";
+        sql_jduge="SELECT user_id,source,name,DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s') as time,message,messageType,background,fontColor FROM messages where messageType=0";
+
 
         try {
             SQLdemo te = new SQLdemo();

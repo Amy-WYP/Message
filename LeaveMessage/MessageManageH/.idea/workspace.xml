@@ -14,29 +14,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HTML/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HTML/Login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="88" selection-start-line="88" selection-end-line="91" selection-end-column="9" />
+            <state relative-caret-position="-77">
+              <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appatry.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HTML/js/appatry.js">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HTML/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="3292" column="7" lean-forward="true" selection-end-line="3314" selection-end-column="1" />
+            <state relative-caret-position="354">
+              <caret line="3314" column="1" selection-start-line="3314" selection-start-column="1" selection-end-line="3314" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -44,8 +35,26 @@
       <file leaf-file-name="myBoard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HTML/myBoard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="-1269">
+              <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Info.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HTML/Info.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2299">
+              <caret line="128" column="36" selection-start-line="128" selection-start-column="36" selection-end-line="128" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Write-Info.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HTML/css/Write-Info.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -53,8 +62,17 @@
       <file leaf-file-name="Write.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HTML/Write.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="26" />
+            <state relative-caret-position="229">
+              <caret line="40" column="68" lean-forward="true" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HTML/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -62,8 +80,8 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HTML/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="837">
-              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+            <state relative-caret-position="391">
+              <caret line="114" column="4" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -88,6 +106,10 @@
       <find>_c.sever.cdn</find>
       <find>MMJ</find>
       <find>ajax</find>
+      <find>BoardShow</find>
+      <find>board-content</find>
+      <find>b</find>
+      <find>word-break:break-all;</find>
     </findStrings>
     <replaceStrings>
       <replace>{\t</replace>
@@ -121,19 +143,19 @@
         <option value="$PROJECT_DIR$/HTML/Register.html" />
         <option value="$PROJECT_DIR$/HTML/js/yinghua.js" />
         <option value="$PROJECT_DIR$/HTML/css/yinghua.css" />
-        <option value="$PROJECT_DIR$/HTML/css/Write-Info.css" />
-        <option value="$PROJECT_DIR$/HTML/Info.html" />
-        <option value="$PROJECT_DIR$/HTML/Manager.html" />
         <option value="$PROJECT_DIR$/HTML/Write.html" />
         <option value="$PROJECT_DIR$/HTML/js/JS.js" />
         <option value="$PROJECT_DIR$/HTML/logindd.html" />
         <option value="$PROJECT_DIR$/HTML/css/login.css" />
         <option value="$PROJECT_DIR$/HTML/js/App.js" />
-        <option value="$PROJECT_DIR$/HTML/css/index.css" />
         <option value="$PROJECT_DIR$/HTML/js/appatry.js" />
+        <option value="$PROJECT_DIR$/HTML/js/app.js" />
+        <option value="$PROJECT_DIR$/HTML/css/index.css" />
         <option value="$PROJECT_DIR$/HTML/index.html" />
         <option value="$PROJECT_DIR$/HTML/myBoard.html" />
-        <option value="$PROJECT_DIR$/HTML/js/app.js" />
+        <option value="$PROJECT_DIR$/HTML/Manager.html" />
+        <option value="$PROJECT_DIR$/HTML/Info.html" />
+        <option value="$PROJECT_DIR$/HTML/css/Write-Info.css" />
         <option value="$PROJECT_DIR$/HTML/Login.html" />
       </list>
     </option>
@@ -147,10 +169,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="756" />
-    <option name="y" value="46" />
-    <option name="width" value="1097" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="619" />
+    <option name="y" value="103" />
+    <option name="width" value="1166" />
     <option name="height" value="948" />
   </component>
   <component name="ProjectView">
@@ -194,13 +216,13 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MM\LeaveMessage\MessageManageH\HTML\js" />
-      <recent name="D:\MM\LeaveMessage\MessageManageH\HTML" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\MM\LeaveMessage\MessageManageH\HTML" />
       <recent name="D:\MM\LeaveMessage\MessageManageH" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MM\LeaveMessage\MessageManageH\HTML\js" />
+      <recent name="D:\MM\LeaveMessage\MessageManageH\HTML" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -261,18 +283,18 @@
       <workItem from="1534988040681" duration="8617000" />
       <workItem from="1535009499851" duration="29887000" />
       <workItem from="1535074702074" duration="7167000" />
-      <workItem from="1535087264719" duration="7656000" />
+      <workItem from="1535087264719" duration="34542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179100000" />
+    <option name="totallyTimeSpent" value="205986000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
+    <frame x="413" y="69" width="777" height="632" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.22361547" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.22291504" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -482,20 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/css/Write-Info.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1593">
-          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3240">
-          <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/花园/实训项目/超市管理系统项目 软一特色社会主义小组P3S4/源文件/前端/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-648" />
@@ -509,42 +517,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Manager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="102" selection-start-line="74" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/js/App_Download.js" />
-    <entry file="file://$PROJECT_DIR$/HTML/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2970">
-          <caret line="110" column="6" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/myBoard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/Write.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6734">
@@ -555,20 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="3314" column="1" selection-start-line="3314" selection-start-column="1" selection-end-line="3314" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/js/appatry.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -576,10 +535,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="3314" column="1" selection-start-line="3314" selection-start-column="1" selection-end-line="3314" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-104">
+          <caret line="114" column="4" lean-forward="true" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/Manager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-351">
+          <caret line="77" column="31" lean-forward="true" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/myBoard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1269">
+          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/Info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2299">
+          <caret line="128" column="36" selection-start-line="128" selection-start-column="36" selection-end-line="128" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/css/Write-Info.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML/Write.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="40" column="68" lean-forward="true" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HTML/Login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="88" selection-start-line="88" selection-end-line="91" selection-end-column="9" />
+        <state relative-caret-position="-77">
+          <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
         </state>
       </provider>
     </entry>

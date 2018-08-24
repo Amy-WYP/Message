@@ -86,9 +86,12 @@ public class SQLdemo {
         rsd = rs.getMetaData();
         while (rs.next()) {
 
-            str = str  + "{\"password\":" + rs.getString(1) + "," + "\"type\":"
-                    + rs.getString(2) + "" + "},";
+            str = str  + "{\"user_id\":" + rs.getString(1) + ","
+                    +"\"type\":\"" + rs.getString(2)
+                    + "\",\"name\":\"" + rs.getString(3)
+                    +"\",\"password\":\"" + rs.getString(4)+ "\""+ "},";
         }
+
         str = str.substring(0, str.length() - 1);
         str = str + "]}";
         return str;
@@ -106,10 +109,15 @@ public class SQLdemo {
         rsd = rs.getMetaData();
         while (rs.next()) {
 
-            str = str + "{\"id\":" + rs.getString(1) + "," + "\"scource\":\"" + rs.getString(2) + ","+ "\"name\":" + rs.getString(3) + "," + "\"time\":" + rs.getString(4)+ "\",\"message\":\""
-                    + rs.getString(5) + "\"," + "\"messageType\":\"" + rs.getString(6) + "\"," + "\"background\":"
-                    + rs.getString(7) + ","  + "\"fontColor\":" + rs.getString(8)
-                     + "" + "},";
+            str = str + "{\"user_id\":" + rs.getString(1) + ","
+                    + "\"source\":" + rs.getString(2)+","
+                    + "\"name\":\"" + rs.getString(3)
+                    + "\",\"time\":\"" + rs.getString(4)
+                    + "\",\"message\":\"" + rs.getString(5)
+                    + "\",\"messageType\":" + rs.getString(6)+","
+                    + "\"background\":\"" + rs.getString(7)
+                    + "\",\"fontColor\":\"" + rs.getString(8)
+                    + "\"" + "},";
         }
 
         str = str.substring(0, str.length() - 1);
@@ -122,7 +130,6 @@ public class SQLdemo {
     public String User(String sql) throws SQLException
     // 连接数据库根据sql语句参数执行查询，并以JSON数组格式返回   用户个人信息
     {
-
         String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage/user\",\"jsonData\":[ ";
         Connection conn = getConection();
         stmt = conn.prepareStatement(sql);
@@ -131,9 +138,14 @@ public class SQLdemo {
 
         while (rs.next()) {
 
-            str = str + "{\"password\":\"" + rs.getString(1) + "\",\"name\":\""
-                    + rs.getString(2) + "\"" + "},";
+            str = str  + "{\"user_id\":" + rs.getString(1) + ","
+                    +"\"type\":\"" + rs.getString(2)
+                    + "\",\"name\":\"" + rs.getString(3)
+                    +"\",\"password\":\"" + rs.getString(4)+ "\""+ "},";
         }
+
+
+
 
         str = str.substring(0, str.length() - 1);
         str = str + "]}";

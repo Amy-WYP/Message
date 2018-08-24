@@ -7,7 +7,7 @@
     <title>个人信息</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/Write-Info.css">
-    <script src="js/JS.js"></script>
+    <script src="js/jquery.min.js"></script>
 
 
 </head>
@@ -106,18 +106,30 @@
 <!--前方大型翻车现场-->
 <!-----------------------------------js: 获取管理员用户名和密码----------------------------------------->
 <script type="text/javascript">
-    //获取发布模块类型
-    var uI="";
-    var uN="";
-    var uP="";
-    function pageReady()
-    {
-        ("http://#/user").
-        query(function (data){
-                $.each(data,function(i,o){
-                    uI=o.user_id;
-                    uN=o.name;
-                    uP="<input type='password'  value='o.password' class='uPass' readonly />";
+    //界面加载时就运行获取 个人信息数据的ajax
+    $(document).ready(function(){
+        // alert("欢迎进入");
+        loading();
+    })
+
+    //加载信息
+    function loading(){
+        var html="";
+        var uI="";
+        var uN="";
+        var uP="";
+        // alert("正在加载");
+        $.ajax({
+            url: "http://localhost:8080/messagemanage/user",
+            type: "get",
+            dataType: 'json',
+            success: function (data) {
+                // var json=JSON.stringify(data);
+                // alert(json);
+                $.each(data.jsonData, function (i, o) {
+                    uI = o.user_id;
+                    uN = o.name;
+                    uP = "<input type='password'  value='o.password' class='uPass' readonly />";
                 });
 
                 //将获取到的id、name、password添加到信息表中对应的地方
@@ -126,9 +138,9 @@
                 $("#uPassword").html(uP);
 
                 //修改时显示原有账号信息
-                document.getElementById("Name").value=uN;
+                document.getElementById("Name").value = uN;
             }
-        )
+        });
     }
 
 </script>
@@ -138,8 +150,8 @@
     //判断两次密码是否相同
     function jduge(p1,p2)
     {
-        var p1=document.getElementById("pw").value;
-        var p2=document.getElementById("pwa").value;
+         p1=document.getElementById("pw").value;
+         p2=document.getElementById("pwa").value;
         if(p1==p2)
         {
             alert("成功");

@@ -23,7 +23,6 @@ public class ShowBoard extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sql_select;
         String sql_addMessage;
-        String aql;
 
 
         resp.setHeader("Access-Control-Allow-Origin", "*");
@@ -38,7 +37,9 @@ public class ShowBoard extends HttpServlet {
 
         sql_addMessage="insert into message(user_id)values("+ load.id+")";                  //创建留言
 
-        sql_select = "SELECT * FROM  message where messageType=1";
+        sql_select="SELECT user_id,source,name,DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s') as time,message,messageType,background,fontColor FROM messages where messageType=1";
+//        sql_select = "SELECT * FROM  messages where messageType=1";
+        //CONVERT(CHAR(19), CURRENT_TIMESTAMP, 100)  DATE_FORMAT(time,'%y-%M-%D-%H-%i') as time
 
         try {
             SQLdemo te = new SQLdemo();

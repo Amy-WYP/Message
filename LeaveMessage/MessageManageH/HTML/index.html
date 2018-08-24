@@ -7,6 +7,10 @@
     <title>留言板</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/JS.js"></script>
+
+    <!--<script src="js/app.js"></script>-->
+    <script src="js/jquery.min.js"></script>
+
     <!--外部文件-->
     <link href="http://www.bootcss.com/p/layoutit/css/bootstrap-combined.min.css" rel="stylesheet">
 
@@ -27,19 +31,10 @@
     </div>
     <!----------------------留言板内容-------------------------------->
 <div class="board">
-    <ul id="BoardShow">
-        <!--<li class="board-item">-->
-            <!--<div class="board-top-left">-->
-                <!--<img src="img/小猫.png" class="headshot"/>-->
-                <!--<span id="username">用户名</span>-->
-                <!--<span id="time">2018-08-16</span>-->
-            <!--</div>-->
-            <!--<div id="board-content">-->
-            <!--</div>-->
-        <!--</li>-->
-</ul>
+    <table id="BoardShow">
+    </table>
 </div>
-    <!-----------------------底部----------------------------->
+    <!-----------------------底部 跳转页面----------------------------->
     <div class="foot">
         <div class="foot-jump">
             <input type="image" src="img/跳转到.png" title="previous"/>
@@ -52,35 +47,229 @@
         </div>
     </div>
 
+    <!--------------下面这个是分页js 对应的跳页按钮  分页已翻车---------------->
+    <!--<div class="foot">-->
+        <!--<div class="foot-jump">-->
+            <!--<span id="spanFirst">首页</span>-->
+            <!--<span id="spanPre">上一页</span>-->
+            <!--<span id="spanNext">下一页</span>-->
+            <!--<span id="spanLast">末页</span>-->
+            <!--第<span id="spanPageNum"></span>页/共-->
+            <!--<span id="spanTotalPage"></span>页-->
+        <!--</div>-->
+    <!--</div>-->
+
     <!------------------@版权所有------------------------------>
     <div class="copyright">
     <p>桑梓实验室 @1725121025 Amy-WYP</p>
     </div>
 </div>
 
-<!---------前方大型施工惨案--------->
+
 <!-----------------------------从数据库获取留言------------------------------------->
 <script type="text/javascript">
-    //获取发布模块类型
-    function pageReady()
-    {
-        var  html="";
-        ("http://localhost:8080/messagemanage/showboard").
-        query(function (data){
-                $.each(data,function(i,o){
-                    html+=" <li class='board-item'> " +
-                        "<div class='board-top-left'>" +
+    //界面加载时就运行获取 留言数据的ajax
+    $(document).ready(function(){
+        // alert("欢迎进入");
+        loading();
+    })
+
+    //加载留言
+    function loading(){
+        var html="";
+        // alert("正在加载");
+        $.ajax({
+            url:"http://localhost:8080/messagemanage/showboard",
+            type:"get",
+            dataType:'json',
+            success:
+                function (data){
+                    // alert("请稍后");
+                $.each(data.jsonData,function(i,o){
+
+                    html+=" <tr id='board-content'><td> " +
+                        "<div class='board-top'><div class='board-top-left'>" +
                         "<img src='img/小猫.png' class='headshot'/>";
                     html+="<span id='username'>"+o.name+"</span>";
-                    // html+="<span id='time'>"+o.time+"</span></div>";
-                    html+="<div id='board-incontent'>"+o.message+"</div></li>";
+                    html+="<span id='time'>"+o.time+"</span></div></div>";
+                    html+="<div id='board-incontent'>"+o.message+"</div></td></tr>";
                 });
+
                 $("#BoardShow").html(html);
             }
-        )
+        });
     }
+
 </script>
 
+<!----------前方大型翻车现场------------>
+<!------翻车原因：table里面是自定义的，无法通过table.row[]进行定位------->
+<!--------------------------------------------分页------------------------------------------->
+
+<!--<script type="text/javascript">-->
+    <!--var theTable = document.getElementById("BoardShow");                 //获取表格-->
+    <!--var totalPage = document.getElementById("spanTotalPage");           //总页数-->
+    <!--var pageNum = document.getElementById("spanPageNum");               //页数-->
+    <!--var spanPre = document.getElementById("spanPre");                   //上一页-->
+    <!--var spanNext = document.getElementById("spanNext");                 //下一页-->
+    <!--var spanFirst = document.getElementById("spanFirst");               //首页-->
+    <!--var spanLast = document.getElementById("spanLast");                 //末页-->
+    <!--var numberRowsInTable = count;                                       //获取行数-->
+    <!--var pageSize = 5;        //每一页显示5行-->
+    <!--var page = 1;            // 默认页 页码-->
+    <!--var currentRow;-->
+
+    <!--function showPage() {pageNum.innerHTML = page;}      //显示页 所在页数-->
+    <!--function hideTable() {                              //隐藏 表格-->
+        <!--for (var i =0; i < numberRowsInTable; i++) {-->
+            <!--theTable.rows[i].style.display = 'none';-->
+        <!--}-->
+    <!--}-->
+    <!--function pageCount() {return Math.ceil(numberRowsInTable/pageSize);} //分页数  Math.ceil()向上取整-->
+
+    <!--//下一页-->
+    <!--function next() {-->
+        <!--hideTable();-->
+        <!--currentRow = pageSize * page;-->
+        <!--maxRow = currentRow + pageSize;-->
+        <!--if (maxRow > numberRowsInTable) {maxRow = numberRowsInTable;}//预防末页-->
+        <!--for (var i = currentRow; i < maxRow; i++) {                   //后面均不可见-->
+            <!--theTable.rows[i].style.display = 'none';-->
+        <!--}-->
+        <!--page++;-->
+        <!--if (maxRow == numberRowsInTable) {-->
+            <!--nextText();-->
+            <!--lastText();-->
+        <!--}-->
+        <!--showPage();-->
+        <!--preLink();-->
+        <!--firstLink();-->
+    <!--}-->
+
+    <!--//上一页-->
+    <!--function pre() {-->
+        <!--hideTable();-->
+        <!--page&#45;&#45;;-->
+        <!--currentRow = pageSize * page;-->
+        <!--maxRow = currentRow - pageSize;-->
+        <!--if (currentRow > numberRowsInTable) {currentRow = numberRowsInTable;}-->
+        <!--for (var i = maxRow; i < currentRow; i++) {-->
+            <!--theTable.rows[i].style.display = '';-->
+        <!--}-->
+        <!--if (maxRow ==numberRowsInTable) {-->
+            <!--preText();-->
+            <!--firstText();-->
+        <!--}-->
+        <!--showPage();-->
+        <!--nextLink();-->
+        <!--lastLink();-->
+    <!--}-->
+
+    <!--//第一页-->
+    <!--function first() {-->
+        <!--hideTable();-->
+        <!--page =1;-->
+        <!--for (var i =0; i < pageSize; i++) {-->
+            <!--theTable.rows[i].style.display = 'block';-->
+        <!--}-->
+        <!--showPage();-->
+        <!--preText();-->
+        <!--nextLink();-->
+        <!--lastLink();-->
+    <!--}-->
+
+    <!--//最后一页-->
+    <!--function last() {-->
+        <!--hideTable();-->
+        <!--page = pageCount();-->
+        <!--currentRow = pageSize * (page -1);-->
+        <!--for (var i = currentRow; i < numberRowsInTable; i++) {-->
+            <!--theTable.rows[i].style.display = 'block';-->
+        <!--}-->
+        <!--showPage();-->
+        <!--preLink();-->
+        <!--nextText();-->
+        <!--firstLink();-->
+    <!--}-->
+
+    <!--//显示链接-->
+    <!--function preLink() {spanPre.innerHTML = "<a href='javascript:pre();'>上一页</a>";}-->
+    <!--function preText() {spanPre.innerHTML = "上一页";}-->
+
+    <!--function nextLink() {spanNext.innerHTML = "<a href='javascript:next();'>下一页</a>";}-->
+    <!--function nextText() {spanNext.innerHTML = "下一页";}-->
+
+    <!--function firstLink() {spanFirst.innerHTML = "<a href='javascript:first();'>首页</a>";}-->
+    <!--function firstText() {spanFirst.innerHTML = "首页";}-->
+
+    <!--function lastLink() {spanLast.innerHTML = "<a href='javascript:last();'>末页</a>";}-->
+    <!--function lastText() {spanLast.innerHTML = "末页";}-->
+
+    <!--//隐藏表格-->
+    <!--function hide() {-->
+        <!--for (var i = pageSize; i < numberRowsInTable; i++) {theTable.rows[i].style.display = 'none';}-->
+        <!--totalPage.innerHTML = pageCount();-->
+        <!--pageNum.innerHTML = '';-->
+        <!--nextLink();-->
+        <!--lastLink();-->
+    <!--}-->
+    <!--hide();-->
+<!--</script>-->
+
+<!--前方大型弃婴现场-->
+<!----------------------留言板内容 ---- 模板 -------------------------------->
+<!--<div class="board">-->
+    <!--<table id="BoardShow">-->
+        <!--<li class="board-item">-->
+            <!--<div class="board-top-left">-->
+                <!--<img src="img/小猫.png" class="headshot"/>-->
+                <!--<span id="username">用户名</span>-->
+                <!--<span id="time">2018-08-16</span>-->
+            <!--</div>-->
+            <!--<div id="board-content">-->
+            <!--</div>-->
+        <!--</li>-->
+    <!--</table>-->
+<!--</div>-->
+
+<!--------------------------计数：<tag valuename="value"> 出现次数 ---- 成功 --------------------------->
+<!--<script type="text/javascript">-->
+<!--// 例：计数<tr id="board-content">：CountNum('tr','id','board-content');-->
+<!--var count = 0;-->
+<!--function CountNum(tag,valuename,value) {-->
+<!--//js 获取<tr>里面，id="board-content"的个数-->
+<!--var divs = document.getElementsByTagName(tag);-->
+<!--for(var i=0;i<divs.length;i++) {-->
+<!--if(divs[i].getAttribute(valuename) ==value) {-->
+<!--count++;-->
+<!--}-->
+<!--}-->
+<!--alert(count);-->
+<!--}-->
+<!--</script>-->
+
+<!-----------------------------从数据库获取留言----- 尚未测试 -------------------------------->
+
+<!--<script type="text/javascript">-->
+    <!--//获取发布模块类型-->
+    <!--function pageReady()-->
+    <!--{-->
+        <!--var  html="";-->
+        <!--("http://localhost:8080/messagemanage/showboard").-->
+        <!--query(function (data){-->
+                <!--$.each(data,function(i,o){-->
+                    <!--html+=" <li class='board-item'> " +-->
+                        <!--"<div class='board-top-left'>" +-->
+                        <!--"<img src='img/小猫.png' class='headshot'/>";-->
+                    <!--html+="<span id='username'>"+o.name+"</span>";-->
+                    <!--// html+="<span id='time'>"+o.time+"</span></div>";-->
+                    <!--html+="<div id='board-incontent'>"+o.message+"</div></li>";-->
+                <!--});-->
+                <!--$("#BoardShow").html(html);-->
+            <!--}-->
+        <!--)-->
+    <!--}-->
+<!--</script>-->
 
 
 </body>

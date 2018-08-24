@@ -8,7 +8,7 @@
     <link href="http://www.bootcss.com/p/layoutit/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/myBoard-Manager.css">
-    <script src="js/JS.js"></script>
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
 
@@ -33,23 +33,8 @@
     </div>
     <!----------------------留言板内容-------------------------------->
     <div class="board">
-        <ul>
-            <!--<li class="board-item">-->
-                <!--<div class="board-top">-->
-                    <!--<div class="board-top-left">-->
-                        <!--<img src="img/小猫.png" class="headshot"/>-->
-                        <!--<span id="username">用户名</span>-->
-                        <!--<span id="time">2018-08-16</span>-->
-                    <!--</div>-->
-                    <!--<div class="board-top-right">-->
-                        <!--<input type="image" src="img/叉.png" title="miss">-->
-                        <!--<input type="image" src="img/勾.png" title="pass">-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div id="board-content">-->
-                <!--</div>-->
-            <!--</li>-->
-        </ul>
+        <table id="BoardShow">
+        </table>
     </div>
     <!-----------------------底部----------------------------->
     <div class="foot">
@@ -73,33 +58,78 @@
 
 
 <!-----------------------------从数据库获取待审核留言------------------------------------->
+
 <script type="text/javascript">
-    //获取发布模块类型
-    function pageReady()
-    {
-        var  html="";
-        ("http://#").
-        query(function (data){
-                $.each(data,function(i,o){
-                    html+=" <li class='board-item'> " +
-                                "<div class='board-top'>" +
-                                    "<div class='board-top-left'>" +
-                                         "<img src='img/小猫.png' class='headshot'/>";
-                    html+=                "<span id='username'>"+o.name+"</span>";
-                    html+=                "<span id='time'>"+o.time+"</span></div>";
-                    html+=          "<div class='board-top-right'>" +
-                                          "<input type='image' src='img/叉.png' title='miss'> " +
-                                           "<input type='image' src='img/勾.png' title='pass'>" +
-                                    "</div>" +
-                                "</div>";
-                    html+="<div id='board-content'>"+o.message+"</div>";
-                    html+="</li>";
-                });
-                $("#BoardShow").html(html);
-            }
-        )
+    //界面加载时就运行获取 留言数据的ajax
+    $(document).ready(function(){
+        // alert("欢迎进入");
+        loading();
+    })
+
+    //加载留言
+    function loading(){
+        var html="";
+        // alert("正在加载");
+        $.ajax({
+            url:"http://localhost:8080/messagemanage/judge",
+            type:"get",
+            dataType:'json',
+            success:
+                function (data){
+                    // alert("请稍后");
+                    $.each(data.jsonData,function(i,o){
+
+                        html+="<tr id='board-content'><td>" +
+                            "<div class='board-top'>" +
+                            "<div class='board-top-left'>" +
+                            "<img src='img/小猫.png' class='headshot'/>";
+                        html+=          "<span id='username'>"+o.name+"</span>";
+                        html+=          "<span id='time'>"+o.time+"</span>" +
+                            "</div>";
+                        html+=     "<div class='board-top-right'>" +
+                            "<input type='image' src='img/叉.png' title='miss'> " +
+                            "<input type='image' src='img/勾.png' title='pass'>" +
+                            "</div>" +
+                            "</div>" ;
+                        html+="<div id='board-incontent'>"+o.message+"</div></td></tr>";
+                    });
+
+                    $("#BoardShow").html(html);
+                }
+        });
     }
+
 </script>
+
+
+<!-----------------------------从数据库获取待审核留言------------------------------------->
+<!--<script type="text/javascript">-->
+    <!--//获取发布模块类型-->
+    <!--function pageReady()-->
+    <!--{-->
+        <!--var  html="";-->
+        <!--("http://#").-->
+        <!--query(function (data){-->
+                <!--$.each(data,function(i,o){-->
+                    <!--html+=" <li class='board-item'> " +-->
+                                <!--"<div class='board-top'>" +-->
+                                    <!--"<div class='board-top-left'>" +-->
+                                         <!--"<img src='img/小猫.png' class='headshot'/>";-->
+                    <!--html+=                "<span id='username'>"+o.name+"</span>";-->
+                    <!--html+=                "<span id='time'>"+o.time+"</span></div>";-->
+                    <!--html+=          "<div class='board-top-right'>" +-->
+                                          <!--"<input type='image' src='img/叉.png' title='miss'> " +-->
+                                           <!--"<input type='image' src='img/勾.png' title='pass'>" +-->
+                                    <!--"</div>" +-->
+                                <!--"</div>";-->
+                    <!--html+="<div id='board-content'>"+o.message+"</div>";-->
+                    <!--html+="</li>";-->
+                <!--});-->
+                <!--$("#BoardShow").html(html);-->
+            <!--}-->
+        <!--)-->
+    <!--}-->
+<!--</script>-->
 
 
 
