@@ -22,6 +22,8 @@ public class load extends HttpServlet {
 	//登录
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String sql1;
+
+		//跨域
 		resp.setHeader("Access-Control-Allow-Origin", "*");
 		resp.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
 		resp.setHeader("Access-Control-Max-Age", "3600");
@@ -30,7 +32,7 @@ public class load extends HttpServlet {
 
 		id=req.getParameter("user_id");
 		
-		sql1="SELECT password ,type FROM user where user_id ="+id+"";
+		sql1="SELECT password,type,name FROM user where user_id ="+id+"";
 
 		resp.setContentType("text/html;charset=utf-8");
 		resp.setCharacterEncoding("UTF-8");

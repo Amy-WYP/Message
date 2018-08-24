@@ -8,7 +8,8 @@
     <link href="http://www.bootcss.com/p/layoutit/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/myBoard-Manager.css">
-    <script src="js/JS.js"></script>
+
+
 </head>
 <body>
 
@@ -77,9 +78,11 @@
     //获取发布模块类型
     function pageReady()
     {
+        alert("http://localhost:8080/messagemanage/showboard");
         var  html="";
-        ("http://#").
+        ("http://localhost:8080/messagemanage/showboard").
         query(function (data){
+
                 $.each(data,function(i,o){
                     html+=" <li class='board-item'> " +
                         "<div class='board-top'>" +

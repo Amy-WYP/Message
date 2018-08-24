@@ -65,14 +65,14 @@
     function pageReady()
     {
         var  html="";
-        ("http://#").
+        ("http://localhost:8080/messagemanage/showboard").
         query(function (data){
                 $.each(data,function(i,o){
                     html+=" <li class='board-item'> " +
                         "<div class='board-top-left'>" +
                         "<img src='img/小猫.png' class='headshot'/>";
                     html+="<span id='username'>"+o.name+"</span>";
-                    html+="<span id='time'>"+o.time+"</span></div>";
+                    // html+="<span id='time'>"+o.time+"</span></div>";
                     html+="<div id='board-incontent'>"+o.message+"</div></li>";
                 });
                 $("#BoardShow").html(html);

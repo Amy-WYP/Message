@@ -2,9 +2,7 @@
  *主要用于连接数据库，实现数据库查询，更新，以及返回JSON数组
  */
 package mm;
-
 import java.sql.*;
-
 
 public class SQLdemo {
 
@@ -80,58 +78,26 @@ public class SQLdemo {
 
     public String load1(String sql) throws SQLException
     // 连接数据库根据sql语句参数执行查询，并以JSON数组格式返回   用户密码,类型
-
     {
-        String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage/loading\",\"jsonData\":[ ";
-
+        String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage/load\",\"jsonData\":[ ";
         Connection conn = getConection();
         stmt = conn.prepareStatement(sql);
         rs = stmt.executeQuery(sql);
         rsd = rs.getMetaData();
-
         while (rs.next()) {
 
             str = str  + "{\"password\":" + rs.getString(1) + "," + "\"type\":"
                     + rs.getString(2) + "" + "},";
         }
-
         str = str.substring(0, str.length() - 1);
         str = str + "]}";
-
         return str;
 
     }
-
-    public String User(String sql) throws SQLException
-    // 连接数据库根据sql语句参数执行查询，并以JSON数组格式返回   用户个人信息
-    {
-
-        String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage/user\",\"jsonData\":[ ";
-
-        Connection conn = getConection();
-        stmt = conn.prepareStatement(sql);
-        rs = stmt.executeQuery(sql);
-        rsd = rs.getMetaData();
-
-        while (rs.next()) {
-
-            str = str + "{\"password\":\"" + rs.getString(1) + "\",\"user_name\":\""
-                    + rs.getString(2) + "\",\"sex\":\""
-                    + rs.getString(3) + "\"," + "\"birth\":\"" + rs.getString(4) + "\"" + "},";
-        }
-
-        str = str.substring(0, str.length() - 1);
-        str = str + "]}";
-
-        return str;
-
-    }
-
 
     public String ShowMessage(String sql) throws SQLException
     // 连接数据库根据sql语句参数执行查询，并以JSON数组格式返回     留言信息
     {
-
         String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage/show_board\",\"jsonData\":[ ";
 
         Connection conn = getConection();
@@ -151,6 +117,28 @@ public class SQLdemo {
         System.out.println(str);
 
         return str;
+    }
+
+    public String User(String sql) throws SQLException
+    // 连接数据库根据sql语句参数执行查询，并以JSON数组格式返回   用户个人信息
+    {
+
+        String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage/user\",\"jsonData\":[ ";
+        Connection conn = getConection();
+        stmt = conn.prepareStatement(sql);
+        rs = stmt.executeQuery(sql);
+        rsd = rs.getMetaData();
+
+        while (rs.next()) {
+
+            str = str + "{\"password\":\"" + rs.getString(1) + "\",\"name\":\""
+                    + rs.getString(2) + "\"" + "},";
+        }
+
+        str = str.substring(0, str.length() - 1);
+        str = str + "]}";
+
+        return str;
 
     }
 
@@ -161,10 +149,8 @@ public class SQLdemo {
     {
 
         String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage\",\"jsonData\":[ ";
-
         str = str + "]}";
         System.out.print(str);
-
         return str;
 
     }

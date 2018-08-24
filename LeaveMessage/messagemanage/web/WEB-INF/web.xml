@@ -20,6 +20,19 @@
     <servlet>
         <description>This is the description of my J2EE component</description>
         <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>register</servlet-name>
+        <servlet-class>mm.register</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
         <servlet-name>userinfo</servlet-name>
         <servlet-class>mm.user_info</servlet-class>
     </servlet>

@@ -7,13 +7,15 @@
     <title>登录</title>
     <link rel="stylesheet" href="css/login.css">
 
-    <!--<script src="js/App_Download.js"></script>-->
-
     <script src="js/app.js"></script>
+   <!--app.js ：实训时使用的侨米工作室给的源文件之一，添加该文件主要用作提交 注册数据，即 "http://".submit()语句 -->
+    <!--另外： 登陆获取数据，即$.getJSON()语句 必须引入 "jquery.min.js"，而"app.js" 里面包含相关内容-->
 
     <!--樱花特效-->
     <link rel="stylesheet" href="css/yinghua.css">
-
+    <!--<script src="js/jquery.min.js"></script>-->
+    <!--<script src="js/jquery.js"></script>-->
+    <!--jquery.min.js 与app.js 重复、冲突，这里不使用-->
     <script src="js/yinghua.js"></script>
 
 
@@ -59,8 +61,8 @@
         <input type="password" placeholder="password" id="psw">
         <!---------登录、注册 提交按钮--------->
         <div class="btn">
-            <button onclick="TouchToLogin()">Login</button>
-        <button class="logout" onclick="window.open('index.html')">Quit</button>
+            <button class="login" onclick="TouchToLogin()">Login</button>
+            <button class="logout" onclick="window.open('index.html')">Quit</button>
         </div>
     </form>
     </div>
@@ -84,73 +86,120 @@
     </div>
 </div>
 
-
-<!--前方尚在施工中-->
-
-<!----------------------------------将登陆界面的账号密码传给后台------------------------------------>
 <script type="text/javascript">
-function pageReady() {}
-    //点击登录时进行账号识别
+    function pageReady() {
+    }
+</script>
+
+<!----------------------------------登陆界面 账号密码识别------------------------------------>
+<script type="text/javascript">
     function TouchToLogin() {
         var user_id = document.getElementById('uid').value;
         var password = document.getElementById('psw').value;
-//账号：1725121000 密码：123456
-
-        ("http://localhost:8080/messagemanage/load?user_id=" + user_id).
-        query(
-        function (data) {
-           // alert("http://localhost:8080/messagemanage/load?user_id="+user_id);
-            // alert(data[0].password);
-
-            if (password != data[0].password) {
-                alert("用户不存在或密码错误！");
-            }
-            else {
-                if (data[0].type == 0) {   //写留言界面
-                    window.location.assign("Write.html")
+        var url="http://localhost:8080/messagemanage/load?user_id="+user_id;
+        alert("请稍后……");// 异步：这里必须添加一行alert
+        $.ajax({
+            url: url,
+            type:"get",
+            dataType:'json',
+            success:
+                function (data) {
+                    alert("正在登陆……");// 异步：这里必须添加一行alert
+                    $.each(data.jsonData, function (i, o) {
+                        var Ps = o.password;
+                        var Ty = o.type;
+                        if (password != Ps) {
+                            alert("用户不存在或密码错误");
+                        }
+                        else {
+                            if (Ty == 0) {   //写留言界面
+                                window.location.assign("Write.html")
+                            }
+                            else {
+                                window.location.assign("myBoard.html")
+                            }
+                        }
+                    })
                 }
-                else {   //管理员留言板界面
-                    window.location.assign("myBoard.html")
-                }
-            }
-            }
-        )
+        })
     }
-
 </script>
 
-<!----------------------------------将注册界面的账号密码传给后台------------------------------------>
+
+<!----------------------------------登陆界面 账号密码识别------------------------------------>
+<!--<script type="text/javascript">-->
+    <!--function TouchToLogin() {-->
+        <!--var user_id = document.getElementById('uid').value;-->
+        <!--var password = document.getElementById('psw').value;-->
+        <!--var url="http://localhost:8080/messagemanage/load?user_id="+user_id;-->
+        <!--alert(url);-->
+        <!--$.getJSON(url,-->
+        <!--function (data) {-->
+            <!--alert(url+password);-->
+            <!--$.each(data.jsonData,function (i,o) {-->
+                <!--var Ps=o.password;-->
+                <!--var Ty=o.type;-->
+                <!--if (password != Ps) {-->
+                    <!--alert("用户不存在或密码错误");-->
+                <!--}-->
+                <!--else {-->
+                    <!--if (Ty==0) {   //写留言界面-->
+                        <!--window.location.assign("Write.html")-->
+                    <!--}-->
+                    <!--else {-->
+                        <!--window.location.assign("myBoard.html")-->
+                    <!--}-->
+                <!--}-->
+            <!--})-->
+        <!--})-->
+    <!--}-->
+<!--</script>-->
+
+
+<!--------------------------------将注册界面的账号密码传给后台---------------------------------->
+
 <script type="text/javascript">
     function register(){
-            var json =
+        //获取值
+        var user_id=document.getElementById('user_id').value;
+        var name=document.getElementById('Name').value;
+        var password=document.getElementById('Pasw').value;
+        //alert("user_id:"+user_id+" name:"+name+" password:"+password);
+        // var url="http://localhost:8080/messagemanage/register";
+
+        //params 获取json数据
+        var params =
                 {
-                    "user_id":$("#user_id").val(),
-                    "name":$("#Name").val(),
-                    "password": $("#Pasw").val(),
+                    "user_id":user_id,
+                    "name":name,
+                    "password": password
                 };
+
+        // alert(params);
+
+        // json：将params 转成字符串
+        // var json=JSON.stringify(params);
+        // alert(json);
+        // 注：前端返回json数组：
+        //      这方面，后端老铁的想法是：
+        //      后端弄个list集合，或者map集合，前端将json数组的名字返回给后端，然后后端视这个名字为map集合的一个key键，然后就能捕捉到这个json，然后再将里面的元素提出来，也就是map集合里面的value值
+        //然而这里的后端没有list也没有map,所以这里直接传数据
+
+
+        //前端直接传注册信息       方法1：成功
             if($("#Pasw").val()==null)
             {
-                $.alert("密码不能为空",2);
+                alert("密码不能为空！");
             }
-            else
-            {
-                "http://#".submit(json, function (data, msg)
-                    {
-                        if(data[0].type==1)
-                        {
-                            $.msg("注册成功!" + "<br>" + "1秒后自动跳转");
-                            setTimeout(function () {  //使用  setTimeout（）方法设定定时1000毫秒
-                                window.location.assign("login.html");//页面刷新
-                            }, 1000);
-                            // $.alert("注册成功！");
-                        }
-                        else
-                        {
-                            $.msg("账号已存在!请重新注册" + "<br>" + "1秒后自动跳转");
-                            setTimeout(function () {  //使用  setTimeout（）方法设定定时1000毫秒
-                                window.location.reload();//页面刷新
-                            }, 1000);
-                            // $.alert("注册成功！");
+            else {
+                "http://localhost:8080/messagemanage/register".submit(params, function (data, msg) {
+                    //下方遗弃
+                        // $.each(data.jsonData,function (i,o) {
+                        //     var nametry=o.name;
+                        //     var Passwo=o.password;
+                        //     alert(nametry+Passwo);
+                    if (data[0].type == 0) {
+                        alert("注册成功!");
                         }
                     }
                 );
@@ -158,7 +207,77 @@ function pageReady() {}
     }
     </script>
 
+<!---------------前方 CTRL+"/" 大型遗弃现场----------------->
 
+<!--------------------------------将登陆界面的账号密码传给后台：成功---------------------------------->
+<!--<script type="text/javascript">-->
+    <!--function pageReady() {}-->
+    <!--//点击登录时进行账号识别-->
+     <!--function TouchToLogin() {-->
+     <!--var user_id = document.getElementById('uid').value;-->
+     <!--var password = document.getElementById('psw').value;-->
+     <!--//账号：1725121000 密码：123456-->
+
+         <!--("http://localhost:8080/messagemanage/load?user_id=" + user_id).-->
+         <!--query(-->
+             <!--function (data) {-->
+                 <!--alert("http://localhost:8080/messagemanage/load?user_id="+user_id);-->
+                 <!--alert(data[0].password);-->
+                 <!--if (password != data[0].password) {-->
+                     <!--alert("用户不存在或密码错误！");-->
+                 <!--}-->
+                 <!--else {-->
+                     <!--if (data[0].type == 0) {   //写留言界面-->
+                         <!--window.location.assign("Write.html")-->
+                     <!--}-->
+                     <!--else {   //管理员留言板界面-->
+                         <!--window.location.assign("myBoard.html")-->
+                     <!--}-->
+                 <!--}-->
+             <!--}-->
+         <!--)-->
+    <!--}-->
+<!--</script>-->
+
+<!----------------------------------将注册界面的账号密码传给后台------------------------------------>
+<!--------------------<script></script>里的内容 续接在  var params{}  语句之后 ---------------------------->
+<!--<script type="text/javascript">-->
+
+
+    <!--//封装json：前端传注册信息      方法2：失败：-->
+    <!--//以下为报错内容：failed to load htt Login.html:1-->
+    <!--//p://localhost:8080/messagemanage/register:Response to preflight request doesn't pass access control check:-->
+    <!--//No 'Acess-Control-Allow-Origin' header is present on the requested resource.-->
+    <!--//Origin 'http://localhost:63343'is therefore not allowed access-->
+
+    <!--var xhr = new XMLHttpRequest();-->
+    <!--xhr.open("get",url,true);-->
+    <!--//设置请求头，请求头的设置必须在xhr打开之后，并且在send之前-->
+    <!--xhr.setRequestHeader("Content-type", "application/json");-->
+    <!--xhr.send(json);-->
+
+
+    <!--前端传注册信息       方法3：ajax失败-->
+    <!--$.ajax({-->
+        <!--type:"get",-->
+        <!--url:"http://localhost:8080/messagemanage/register",-->
+        <!--data:json,-->
+        <!--// contentType: false：添加false这行，显示注册成功但是没有把值传出去-->
+        <!--contentType:"application/json; charset=utf-8",-->
+        <!--//dataType:"jsonp" 支持跨域 ，百度都说把"json"换成"jsonp"-->
+        <!--dataType:"jsonp",-->
+        <!--success:-->
+        <!--function () {-->
+            <!--alert("注册成功")-->
+        <!--},-->
+        <!--error:-->
+        <!--function () {-->
+          <!--alert("提交数据失败")-->
+        <!--}-->
+    <!--})-->
+
+
+<!--</script>-->
 
 
 </body>
