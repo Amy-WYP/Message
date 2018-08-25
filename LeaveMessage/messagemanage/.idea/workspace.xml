@@ -7,35 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8442714a-5a00-4c6d-b501-7e2c01afa53c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/mm/DateFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mm/judge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/HTML/Manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/HTML/Manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/HTML/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/HTML/Write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/HTML/css/myBoard-Manager.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/HTML/css/myBoard-Manager.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/HTML/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/HTML/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/HTML/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/HTML/info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/HTML/js/JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/HTML/js/JS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/HTML/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/HTML/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MessageManageH/HTML/myBoard.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MessageManageH/HTML/myBoard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/JudgeMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/JudgeMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/SQLdemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/SQLdemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/ShowBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/ShowBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/update_info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/update_info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/write.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/classes/mm/write.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/messagemanage_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mm/JudgeMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mm/JudgeMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mm/SQLdemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mm/SQLdemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mm/ShowBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mm/ShowBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mm/update_info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mm/update_info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mm/write.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mm/write.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/mm/JudgeMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/mm/JudgeMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/mm/SQLdemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/mm/SQLdemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/mm/ShowBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/mm/ShowBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/mm/update_info.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/mm/update_info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/mm/write.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/mm/write.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -121,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mm/judge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
+            <state relative-caret-position="635">
               <caret line="62" column="43" lean-forward="true" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -133,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mm/SQLdemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="116" column="44" selection-start-line="116" selection-start-column="44" selection-end-line="116" selection-end-column="44" />
+            <state relative-caret-position="325">
+              <caret line="117" column="23" selection-start-line="116" selection-start-column="44" selection-end-line="117" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -241,10 +213,10 @@
         <option value="$PROJECT_DIR$/src/mm/update_info.java" />
         <option value="$PROJECT_DIR$/src/mm/write.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/mm/SQLdemo.java" />
         <option value="$PROJECT_DIR$/src/mm/ShowBoard.java" />
         <option value="$PROJECT_DIR$/src/mm/JudgeMessage.java" />
         <option value="$PROJECT_DIR$/src/mm/judge.java" />
+        <option value="$PROJECT_DIR$/src/mm/SQLdemo.java" />
       </list>
     </option>
   </component>
@@ -261,9 +233,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="307" />
-    <option name="y" value="57" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-138" />
+    <option name="y" value="18" />
     <option name="width" value="1568" />
     <option name="height" value="1029" />
   </component>
@@ -335,7 +307,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/MM/LeaveMessage/messagemanage/web/index.jsp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535208463950" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535222983791" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/json-lib-2.3.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -488,15 +460,15 @@
       <workItem from="1535006730986" duration="15411000" />
       <workItem from="1535074508930" duration="12150000" />
       <workItem from="1535092280250" duration="18431000" />
-      <workItem from="1535174830368" duration="27267000" />
+      <workItem from="1535174830368" duration="29840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73259000" />
+    <option name="totallyTimeSpent" value="75832000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="704" extended-state="7" />
+    <frame x="-92" y="12" width="1045" height="686" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.30210772" />
@@ -509,7 +481,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49882904" visible="true" weight="0.17845118" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49882904" visible="true" weight="0.18402778" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39730638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -677,20 +649,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mm/write.java">
+    <entry file="file://$PROJECT_DIR$/src/mm/update_info.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="131">
+          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#2594#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mm/judge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="62" column="43" lean-forward="true" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mm/ShowBoard.java">
+    <entry file="file://$PROJECT_DIR$/src/mm/write.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="39" column="177" selection-start-line="39" selection-start-column="169" selection-end-line="39" selection-end-column="177" />
+        <state relative-caret-position="290">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -707,31 +690,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mm/ShowBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="39" column="177" selection-start-line="39" selection-start-column="169" selection-end-line="39" selection-end-column="177" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mm/SQLdemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="116" column="44" selection-start-line="116" selection-start-column="44" selection-end-line="116" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mm/update_info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#2594#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mm/judge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="62" column="43" lean-forward="true" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="325">
+          <caret line="117" column="23" selection-start-line="116" selection-start-column="44" selection-end-line="117" selection-end-column="23" />
         </state>
       </provider>
     </entry>

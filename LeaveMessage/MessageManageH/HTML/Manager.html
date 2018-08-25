@@ -77,13 +77,12 @@
                 function (data){
                     // alert("请稍后");
                     $.each(data.jsonData,function(i,o){
-                        // var messageId=o.messageId;
-                        html+="<tr id='board-content'><td>" +
+                        html+="<tr id='board-content' style='background-color:"+o.background+";color:"+o.fontColor+"'><td>" +
                             "<div class='board-top'>" +
                             "<div class='board-top-left'>" +
                             "<img src='img/小猫.png' class='headshot'/>";
-                        html+=          "<span id='username'>"+o.name+"</span>";
-                        html+=          "<span id='time'>"+o.time+"</span>" +
+                        html+=          "<span id='username' style='color:"+o.fontColor+"'>"+o.name+"</span>";
+                        html+=          "<span id='time' style='color:"+o.fontColor+"'>"+o.time+"</span>" +
                             "</div>";
                         html+=     "<div class='board-top-right'>" +
                             "<input type='image' src='img/叉.png' title='miss' onclick='submitJudge(2,\""+o.messageId+"\")'> " +
@@ -93,6 +92,7 @@
                         html+="<div id='board-incontent'>"+o.message+"</div></td></tr>";
 
                     });
+                    // $("#TextArea").style.color=o.fontColor;
 
                     $("#BoardShow").html(html);
                 }

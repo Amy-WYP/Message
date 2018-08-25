@@ -32,7 +32,7 @@
     <!--------------------留言内容----------------------------->
 <div class="message">
     <!----留言板---->
-    <textarea id="TextArea" ></textarea>
+    <textarea id="TextArea" style="font-size: 18px"></textarea>
     <!----签名------>
     <form class="note">
         <img src="img/签名.png" />
@@ -44,39 +44,152 @@
         <!----留言板修饰--------->
     <div class="decoration">
         <div class="dec-menu">
-        <input type="image" src="img/表情.png" />
-        <input type="image" src="img/特效.png" />
-        <input type="image" src="img/color.png" />
+        <!--<img src="img/表情.png" onclick="isSwitch('img/表情.png','img/表情选中.png','fc-table')"/>-->
+        <img src="img/特效选中.png" id="fColor" onclick="isSwitch('fColor','img/特效选中.png','img/特效.png','bColor','img/color-filling.png','img/color.png','fc','bg')"/>
+        <img src="img/color.png" id="bColor" onclick="isSwitch('bColor','img/color-filling.png','img/color.png','fColor','img/特效选中.png','img/特效.png','bg','fc')"/>
         </div>
-        <!--<table>-->
-        <!--<tr class="dec-line">-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--<td><input type="image" src="img/表情.png" /></td>-->
-        <!--</tr>-->
-            <!--<tr class="dec-line">-->
-                <!--<td><input type="image" src="img/表情.png" /></td>-->
-                <!--<td><input type="image" src="img/表情.png" /></td>-->
-                <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--</tr>-->
-        <!--</table>-->
 
+        <!-------------------------------------------------字体色表---------------------------------------------------->
+        <div id="fc">
+        <table id="fc-table">
+            <tr class="bg-tr">
+                <td>
+                    <input class="bg-td-color" style="background-color: #000000" onclick="getfc('#000000')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #FFF0F5" onclick="getfc('#FFF0F5')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #F0FFF0" onclick="getfc('#F0FFF0')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #F8F8FF" onclick="getfc('#F8F8FF')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #EED2EE" onclick="getfc('#EED2EE')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #CAE1FF" onclick="getfc('#CAE1FF')" readonly/>
+                </td>
+            </tr>
+            <tr class="bg-tr">
+                <td>
+                    <input class="bg-td-color" style="background-color: #90EE90" onclick="getfc('#90EE90')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #00008B" onclick="getfc('#00008B')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color:#FFE4E1" onclick="getfc('#FFE4E1')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #006400" onclick="getfc('#006400')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #FFFACD" onclick="getfc('#FFFACD')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #FFFFFF" onclick="getfc('#FFFFFF')" readonly/>
+                </td>
+            </tr>
+        </table>
     </div>
-    <div style="color: #ccc">
-    <span>id： </span>
-    <input id="userId" style="color: #ccc;outline: none;-webkit-appearance: none; border:none" readonly/>
-    <input id="nowDate" style="color: #ccc;outline: none;-webkit-appearance: none; border:none;float: right" readonly/>
+
+        <!-------------------------------------------------背景色表---------------------------------------------------->
+        <div id="bg">
+        <table id="bg-table">
+            <tr class="bg-tr">
+                <td>
+                    <input class="bg-td-color" style="background-color: #FFFFFF" onclick="getbg('#FFFFFF')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #FFF0F5" onclick="getbg('#FFF0F5')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #F0FFF0" onclick="getbg('#F0FFF0')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #F8F8FF" onclick="getbg('#F8F8FF')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #EED2EE" onclick="getbg('#EED2EE')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #CAE1FF" onclick="getbg('#CAE1FF')" readonly/>
+                </td>
+            </tr>
+            <tr class="bg-tr">
+                <td>
+                    <input class="bg-td-color" style="background-color: #90EE90" onclick="getbg('#90EE90')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #00008B" onclick="getbg('#00008B')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color:#FFE4E1" onclick="getbg('#FFE4E1')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #006400" onclick="getbg('#006400')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #FFFACD" onclick="getbg('#FFFACD')" readonly/>
+                </td>
+                <td>
+                    <input class="bg-td-color" style="background-color: #000000" onclick="getbg('#000000')" readonly/>
+                </td>
+            </tr>
+        </table>
+        </div>
+
+        <!-------------------------------获取选取的颜色 赋值给 TextArea 做背景色------------------------------------------------->
+        <script type="text/javascript">
+        function  getbg(color){var bg= document.getElementById("TextArea").style.backgroundColor=color;}
+        </script>
+
+        <!-------------------------------获取选取的颜色 赋值给 TextArea 做字体颜色------------------------------------------------->
+        <script type="text/javascript">
+            function  getfc(color){var bg= document.getElementById("TextArea").style.color=color;}
+        </script>
+
+        <!-------------------------显示切换：隐藏--------------------------->
+        <script type="text/javascript">
+            function isSwitch(img1,src11,src12,img2,src21,src22,showMenu,hidMenu)
+            {
+                var sMenu=document.getElementById(showMenu);
+                var hMenu=document.getElementById(hidMenu);
+
+                var imgS=document.getElementById(img1);
+                var imgH=document.getElementById(img2);
+
+                if((hMenu.style.display=='block')&&(sMenu.style.display=='none'))
+                { imgS.src=src11;imgH.src=src22;}
+                else
+                {imgS.src=src12;imgH.src=src21;}
+
+
+                hMenu.style.display=(hMenu.style.display=='block')?'none':'block';
+                sMenu.style.display=(sMenu.style.display=='none')?'block':'none';
+
+                // if(sMenu.style.display=='block'){
+                //     sMenu.style.display=='none';
+                //     hMenu.style.display=='block';
+                // }
+                // else {
+                //     sMenu.style.display=='block';
+                //     hMenu.style.display=='none';
+                // }
+
+
+            }
+
+        </script>
     </div>
-    <!--清除记录-->
-    <!--<input type="text" value="清空记录" id="nowDate"/>-->
-    <!--<p id="msg"></p>-->
+    <!-------------留言板底部显示个人账号 及当前时间------------>
+    <div style="color: #bbb;margin-top: -10%">
+        <span>id： </span>
+        <input id="userId" style="color: #bbb;outline: none;-webkit-appearance: none; border:none" readonly/>
+        <input id="nowDate" style="color: #bbb;outline: none;-webkit-appearance: none; border:none;float: right" readonly/>
+    </div>
 </div>
 
 </div>
@@ -165,6 +278,7 @@
         var message=document.getElementById('TextArea').value;
         var background=document.getElementById('TextArea').style.backgroundColor;
         var color=document.getElementById('TextArea').style.color;
+        alert("background:"+background+color);
 
         var url="http://localhost:8080/messagemanage/write";
         //params 获取json数据

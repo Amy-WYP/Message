@@ -85,11 +85,13 @@
                     // alert("请稍后");
                 $.each(data.jsonData,function(i,o){
 
-                    html+=" <tr id='board-content'><td> " +
-                        "<div class='board-top'><div class='board-top-left'>" +
+                    html+="<tr id='board-content' style='background-color:"+o.background+";color:"+o.fontColor+"'><td>" +
+                        "<div class='board-top'>" +
+                        "<div class='board-top-left'>" +
                         "<img src='img/小猫.png' class='headshot'/>";
-                    html+="<span id='username'>"+o.name+"</span>";
-                    html+="<span id='time'>"+o.time+"</span></div></div>";
+                    html+=          "<span id='username' style='color:"+o.fontColor+"'>"+o.name+"</span>";
+                    html+=          "<span id='time' style='color:"+o.fontColor+"'>"+o.time+"</span>" +
+                        "</div>";
                     html+="<div id='board-incontent'>"+o.message+"</div></td></tr>";
                 });
 

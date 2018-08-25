@@ -8,7 +8,7 @@
 */
 
 body
-{height:500px;}
+{height:550px;}
 .head
 {height:16%;}
 .top
@@ -30,7 +30,7 @@ body
 .message
 {
     width: 85%;
-    height:60%;
+    height:63%;
     margin: auto;
 }
 .message textarea
@@ -85,13 +85,14 @@ body
     position: absolute;
     vertical-align:middle;
 }
-/*留言修饰*/
+/*             留言修饰           */
 .decoration
 {
-    height: 50%;
+    height: 70%;
     margin: 40px auto;
+    /*background-color: red;*/
 }
-.decoration .dec-menu input
+.dec-menu img
 {
     width: 23px;
     height: 22px;
@@ -107,26 +108,61 @@ body
 {
     border: 1px solid #432744;
 }
+#bg,#fc
+{
+    width: 100%;
+    height: 65%;
+}
+#bg
+{
+    display: none;
+}
+#fc
+{
+    display: block;
+}
+#bg-table,#fc-table
+{
+    background-color: #fefefe;
+}
 .decoration table
 {
     width: 100%;
-    height: 80%;
+    height: 100%;
     border-collapse: collapse;
     border: 1px solid #d5d5d5;
+    /*background-color: red;*/
 }
-.decoration td
+.emo-table td
 {
     width: 10%;
     /*border:1px solid blue;*/
-
 }
-.decoration table input
+.emo-table input
 {
     width: 25px;
     height: 25px;
     margin-top: 2px;
     margin-left: 25px;
     /*border:1px solid yellow;*/
+}
+
+.bg-tr
+{
+    width: 100%;
+    height: 50%;
+
+}
+
+.bg-td-color
+{
+    border: 1px solid #f2f2f2;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-left: 25px;
+
 }
 
 
@@ -136,10 +172,8 @@ body
 */
 
 .uPass {
-    border: 0px;
-    outline-color: invert;
-    outline-style: none;
-    outline-width: 0px;
+    border: 0;
+    outline: none;
     cursor: pointer;
     background: transparent;
 }
