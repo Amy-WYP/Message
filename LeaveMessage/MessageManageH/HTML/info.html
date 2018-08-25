@@ -144,6 +144,7 @@
     }
 
 </script>
+
 <!-----------------------------------js: 修改管理员用户名和密码----------------------------------------->
 <script type="text/javascript">
 
@@ -154,7 +155,6 @@
          p2=document.getElementById("pwa").value;
         if(p1==p2)
         {
-            alert("成功");
             updateInfo();
         }
         else
@@ -164,17 +164,32 @@
     }
 
     function updateInfo(){
-        var json = {
-            "user_name":$("#Name").val(),
-            "password": $("#pw").val(),
-        };
+        var newN=document.getElementById("Name").value;
+        var newP=document.getElementById("pw").value;
+        var url="http://localhost:8080/messagemanage/update";
+        var params =
+            {
+                "name":newN,
+                "password":newP
 
-        "http://#".submit(json, function (data, msg) {
-            $.msg("修改成功!" + "<br>" + "3秒后自动刷新");
-            setTimeout(function () {  //使用  setTimeout（）方法设定定时3000毫秒
-                window.location.reload();//页面刷新
-            }, 3000);
-        });
+            };
+        // var json=JSON.stringify(params);
+        // alert(json);
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:params,
+            success:function () {
+                alert("修改成功");
+                setTimeout(function () {  //使用  setTimeout（）方法设定定时1000毫秒
+                    window.location.reload();//页面刷新
+                }, 1000);
+            },
+            error:
+                function () {
+                    alert("修改失败")
+                }
+        })
     }
 </script>
 

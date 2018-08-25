@@ -15,7 +15,7 @@
 {
     position: absolute;
     margin-top: -4%;
-    margin-left: 62%;
+    margin-left: 56%;
 }
 .icon
 {padding: 0;}
@@ -32,16 +32,17 @@
  *
  以下是 myBoard头部输入框
 */
-.top [title="iw"]
+.top [title="toWrite"]
 {
-    width: 57.4%;
+    width: 48.2%;
     height: 4%;
     position: absolute;
     margin-left: 7.2%;
-    margin-top: -3%;
+    margin-top: -2.6%;
     padding-top: 8px;
     border: 1px solid #666666;
 }
+
 .top [title="write"]
 {
     width: 24px;

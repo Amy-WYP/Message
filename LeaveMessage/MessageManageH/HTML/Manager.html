@@ -16,7 +16,7 @@
 
     <!----------------------------顶部--------------------------->
     <div class="head">
-        <img src="img/审核猫.png" href="index.html" class="Logo"/>
+        <img src="img/审核猫.png" onclick="location.href='myBoard.html'" class="Logo"/>
         <div>
             <input type="image" src="img/已读.png" title="news" class="icon" onclick="location.href='myBoard.html'" />
         </div>
@@ -64,8 +64,7 @@
     $(document).ready(function(){
         // alert("欢迎进入");
         loading();
-    })
-
+    });
     //加载留言
     function loading(){
         var html="";
@@ -78,7 +77,7 @@
                 function (data){
                     // alert("请稍后");
                     $.each(data.jsonData,function(i,o){
-
+                        // var messageId=o.messageId;
                         html+="<tr id='board-content'><td>" +
                             "<div class='board-top'>" +
                             "<div class='board-top-left'>" +
@@ -87,11 +86,12 @@
                         html+=          "<span id='time'>"+o.time+"</span>" +
                             "</div>";
                         html+=     "<div class='board-top-right'>" +
-                            "<input type='image' src='img/叉.png' title='miss'> " +
-                            "<input type='image' src='img/勾.png' title='pass'>" +
+                            "<input type='image' src='img/叉.png' title='miss' onclick='submitJudge(2,\""+o.messageId+"\")'> " +
+                            "<input type='image' src='img/勾.png' title='pass' onclick='submitJudge(1,\""+o.messageId+"\")'> " +
                             "</div>" +
                             "</div>" ;
                         html+="<div id='board-incontent'>"+o.message+"</div></td></tr>";
+
                     });
 
                     $("#BoardShow").html(html);
@@ -100,6 +100,55 @@
     }
 
 </script>
+
+<!--------------------------------------------------管理留言信息------------------------------------------------------------->
+<script type="text/javascript">
+    var pass="";
+    var dele="";
+    function  submitJudge(num,mid) {
+        if (num == 2) {
+            dele = "delete";
+        }
+        else {
+            pass = "pass";
+        }
+        submitType(mid);
+    }
+
+    function submitType(messageId) {
+        var url="http://localhost:8080/messagemanage/deal";
+        var params={
+            "pass":pass,
+            "dele":dele,
+            "messageId":messageId
+        }
+        // alert(params);
+        // var json=JSON.stringify(params);
+        // alert(json);
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:params,
+            success:function () {
+                alert("修改成功");
+                setTimeout(function () {  //使用  setTimeout（）方法设定定时1000毫秒
+                    window.location.reload();//页面刷新
+                }, 1000);
+            },
+            error:
+                function () {
+                    alert("修改失败")
+                }
+        })
+
+    }
+</script>
+
+
+
+
+
+
 
 
 <!-----------------------------从数据库获取待审核留言------------------------------------->

@@ -7,7 +7,8 @@
     <title>留言</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/Write-Info.css">
-    <script src="js/JS.js"></script>
+    <!--<script src="js/app.js"></script>-->
+    <script src="js/jquery.min.js"></script>
 
 </head>
 </html>
@@ -23,22 +24,20 @@
     <div class="top">
             <input type="image" src="img/返回猫.png" title="return" class="icon" onclick="javascript:history.back(-1);"/>
 
-            <input type="image" src="img/提交.png"  title="submit" class="icon" onclick="submitText('TextArea')"/>
+            <input type="image" src="img/提交.png"  title="submit" class="icon" onclick="submit()"/>
     </div>
 
 <div>
 </div>
     <!--------------------留言内容----------------------------->
 <div class="message">
-    <!--对文本域进行修饰-->
-    <!--<textarea id="TextArea" onmouseover="TMouseover()">-->
     <!----留言板---->
     <textarea id="TextArea" ></textarea>
     <!----签名------>
     <form class="note">
         <img src="img/签名.png" />
         <a>
-    <input type="text" placeholder="签名" id="name" autocomplete="off"/>
+    <input type="text" placeholder="签名" id="wName" autocomplete="off"/>
         </a>
     </form>
     <!--太高级，翻车了-->
@@ -67,22 +66,179 @@
                 <!--<td><input type="image" src="img/表情.png" /></td>-->
                 <!--<td><input type="image" src="img/表情.png" /></td>-->
             <!--</tr>-->
-            <!--<tr class="dec-line">-->
-                <!--<td><input type="image" src="img/表情.png" /></td>-->
-                <!--<td><input type="image" src="img/表情.png" /></td>-->
-                <!--<td><input type="image" src="img/表情.png" /></td>-->
-            <!--</tr>-->
         <!--</table>-->
 
     </div>
-
+    <div style="color: #ccc">
+    <span>id： </span>
+    <input id="userId" style="color: #ccc;outline: none;-webkit-appearance: none; border:none" readonly/>
+    <input id="nowDate" style="color: #ccc;outline: none;-webkit-appearance: none; border:none;float: right" readonly/>
+    </div>
     <!--清除记录-->
-    <input type="button" value="清空记录" onclick="clearText('msg')">
-    <p id="msg"></p>
-
-
+    <!--<input type="text" value="清空记录" id="nowDate"/>-->
+    <!--<p id="msg"></p>-->
 </div>
 
 </div>
+
+
+
+<!-----------------------------------获取当前时间------------------------------->
+<script type="text/javascript">
+    //显示当前时间
+    function date() {
+        //获取日期
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        if (month < 10) {
+            month = "0" + month;
+        }
+        var day = date.getDate();
+        if (day < 10) {
+            day = "0" + day;
+        }
+        //获取时间
+        var hour = "00" + date.getHours();
+        hour = hour.substr(hour.length - 2);
+        var minute = "00" + date.getMinutes();
+        minute = minute.substr(minute.length - 2);
+        var second = "00" + date.getSeconds();
+        second = second.substr(second.length - 2);
+        // //获取当前星期
+        // var week = date.getDay();
+        // switch (week) {
+        //     case 1: week = "星期一 "; break;
+        //     case 2: week = "星期二 "; break;
+        //     case 3: week = "星期三 "; break;
+        //     case 4: week = "星期四 "; break;
+        //     case 5: week = "星期五 "; break;
+        //     case 6: week = "星期六 "; break;
+        //     case 0: week = "星期日 "; break;
+        //     default: week = ""; break;
+        // }
+        //输入的内容
+        document.getElementById("nowDate").value = year + "-" + month + "-" + day+" "+hour+":"+minute+":"+second+" ";
+    }
+    setInterval("date()", 1000);  //每1000毫秒更新一次
+
+</script>
+
+
+
+<!-----------------------------------js: 获取管理员用户名和密码----------------------------------------->
+<script type="text/javascript">
+    //界面加载时就运行获取 个人信息数据的ajax
+    $(document).ready(function(){
+        loading();
+    });
+    function loading(){
+
+        var uI="";
+        var uN="";
+        $.ajax({
+            url: "http://localhost:8080/messagemanage/user",
+            type: "get",
+            dataType: 'json',
+            success: function (data) {
+                $.each(data.jsonData, function (i, o) {
+                    uI = o.user_id;
+                    uN = o.name;
+                });
+                //显示原有账号信息
+                document.getElementById("userId").value = uI;
+                document.getElementById("wName").value = uN;
+            }
+        });
+    }
+</script>
+
+<!--------------------------------将 留言信息 传给后台---------------------------------->
+
+<script type="text/javascript">
+    function pageReady() {}
+    function submit(){
+        //获取值
+        var user_id=document.getElementById('userId').value;
+        var name=document.getElementById('wName').value;
+        var time=document.getElementById('nowDate').value;
+        var message=document.getElementById('TextArea').value;
+        var background=document.getElementById('TextArea').style.backgroundColor;
+        var color=document.getElementById('TextArea').style.color;
+
+        var url="http://localhost:8080/messagemanage/write";
+        //params 获取json数据
+        var params =
+            {
+                "user_id":user_id,
+                "name":name,
+                "message":message,
+                "messageType":0,
+                "messageId": time,
+                "background":background,
+                "fontColor":color
+            };
+
+        // alert(params);
+        // alert(time);
+        // var json=JSON.stringify(params);
+        // alert(json);
+
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:params,
+            success:function () {
+                alert("请等待审核,点击确定后刷新");
+                setTimeout(function () {  //使用  setTimeout（）方法设定定时1000毫秒
+                    window.location.reload();//页面刷新
+                }, 1000);
+            },
+            error:
+            function () {
+                alert("留言失败")
+            }
+        })
+
+
+
+
+    }
+</script>
+
+
+
+<!-----------------------------------日常遗弃现场----------------------------------->
+<!--进入留言界面时 留言使用的名字 先加载出默认值为用户名-->
+<!--<script type="text/javascript">-->
+    <!--// 以下是配合使用app.js 的获取数据 以及传送数据的js 。但控制台会打印请登录并闪跳回登陆界面      失败-->
+    <!--function pageReady() {-->
+        <!--var html="";-->
+        <!--var uI="";-->
+        <!--var uN="";-->
+        <!--("http://localhost:8080/messagemanage/user").-->
+            <!--query(function (data) {-->
+            <!--$.each(data, function (i, o) {-->
+                <!--uI = o.user_id;-->
+                <!--uN = o.name;-->
+            <!--});-->
+            <!--//显示原有账号信息-->
+            <!--document.getElementById("wName").value = uN;-->
+        <!--})-->
+    <!--}-->
+
+<!--"http://localhost:8080/messagemanage/judge".submit(params, function (data, msg) {-->
+<!--if (data[0].messageType == 0) {-->
+<!--alert("请等待审核!");-->
+<!--}-->
+<!--}-->
+<!--);-->
+
+<!--</script>-->
+
+
+
+
+
 </body>
 </html>

@@ -27,30 +27,14 @@
     <div class="top">
         <input type="image" src="img/走猫.png" title="leave" class="icon" onclick="location.href='index.html'"/>
 
-            <div type="text" title="iw">
-            <input type="image" src="img/编辑.png" title="write" class="icon" onclick="location.href='Write.html'"/>
+            <div title="toWrite" onclick="location.href='Write.html'">
+            <input type="image" src="img/编辑.png" title="write" class="icon"/>
             </div>
 
     </div>
     <!----------------------留言板内容-------------------------------->
     <div class="board">
         <table id="BoardShow">
-            <!--<li class="board-item">-->
-                <!--<div class="board-top">-->
-                <!--<div class="board-top-left">-->
-                    <!--<img src="img/小猫.png" class="headshot"/>-->
-                    <!--<span id="username">用户名</span>-->
-                    <!--<span id="time">2018-08-16</span>-->
-                <!--</div>-->
-                    <!--<div class="board-top-right">-->
-                        <!--<input type="image" src="img/删除.png"  title="delete" class="del">-->
-                        <!--<input type="image" src="img/重新编辑.png" title="edit" class="del">-->
-                <!--</div>-->
-                <!--</div>-->
-
-                <!--<div id="board-content">-->
-                <!--</div>-->
-            <!--</li>-->
         </table>
     </div>
     <!-----------------------底部----------------------------->
@@ -102,10 +86,10 @@
                         html+=          "<span id='time'>"+o.time+"</span>" +
                                    "</div>";
                         html+=     "<div class='board-top-right'>" +
-                                        "<input type='image' src='img/删除.png' title='delete' class='del'> " +
-                                        "<input type='image' src='img/重新编辑.png' title='edit' class='del'>" +
-                                  "</div>" +
-                            "</div>" ;
+                                        "<input type='image' src='img/删除.png' title='delete' class='del' onclick='submitJudge(2,\""+o.messageId+"\")'> " +
+                                        "<input type='image' src='img/重新编辑.png' title='edit' class='del'>"
+                            +       "</div>"
+                            + "</div>" ;
                         html+="<div id='board-incontent'>"+o.message+"</div></td></tr>";
                     });
 
@@ -115,6 +99,52 @@
     }
 
 </script>
+
+
+<!--------------------------------------------------管理留言信息------------------------------------------------------------->
+<script type="text/javascript">
+    var pass="";
+    var dele="";
+    function  submitJudge(num,mid) {
+        if (num == 2) {
+            dele = "delete";
+        }
+        else {
+            pass = "pass";
+        }
+        submitType(mid);
+    }
+
+    function submitType(messageId) {
+        var url="http://localhost:8080/messagemanage/deal";
+        var params={
+            "pass":pass,
+            "dele":dele,
+            "messageId":messageId
+        }
+        // alert(params);
+        // var json=JSON.stringify(params);
+        // alert(json);
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:params,
+            success:function () {
+                alert("修改成功");
+                setTimeout(function () {  //使用  setTimeout（）方法设定定时1000毫秒
+                    window.location.reload();//页面刷新
+                }, 1000);
+            },
+            error:
+                function () {
+                    alert("修改失败")
+                }
+        })
+
+    }
+</script>
+
+
 
 
 <!-----------------------------从数据库获取留言------------------------------------->
@@ -149,6 +179,24 @@
     <!--}-->
 
 <!--</script>-->
+
+<!------------留言板模板------------->
+<!--<li class="board-item">-->
+<!--<div class="board-top">-->
+<!--<div class="board-top-left">-->
+<!--<img src="img/小猫.png" class="headshot"/>-->
+<!--<span id="username">用户名</span>-->
+<!--<span id="time">2018-08-16</span>-->
+<!--</div>-->
+<!--<div class="board-top-right">-->
+<!--<input type="image" src="img/删除.png"  title="delete" class="del">-->
+<!--<input type="image" src="img/重新编辑.png" title="edit" class="del">-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div id="board-content">-->
+<!--</div>-->
+<!--</li>-->
 
 
 

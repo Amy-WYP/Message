@@ -1,4 +1,5 @@
 //留言
+// 这个js用于显示时间戳、留言内容并打印的
 function submitText(text) {
     //获取留言信息：textarea中的value
     var data=document.getElementById(text).value;

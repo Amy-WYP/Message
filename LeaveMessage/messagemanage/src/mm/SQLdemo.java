@@ -101,7 +101,7 @@ public class SQLdemo {
     public String ShowMessage(String sql) throws SQLException
     // 连接数据库根据sql语句参数执行查询，并以JSON数组格式返回     留言信息
     {
-        String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage/show_board\",\"jsonData\":[ ";
+        String str = "{\"code\":1,\"msg\":\"\",\"url\":\"http://localhost:8080/messagemanage/showboard\",\"jsonData\":[ ";
 
         Connection conn = getConection();
         stmt = conn.prepareStatement(sql);
@@ -110,12 +110,12 @@ public class SQLdemo {
         while (rs.next()) {
 
             str = str + "{\"user_id\":" + rs.getString(1) + ","
-                    + "\"source\":" + rs.getString(2)+","
-                    + "\"name\":\"" + rs.getString(3)
+                    + "\"messageId\":\"" + rs.getString(2)
+                    + "\",\"name\":\"" + rs.getString(3)
                     + "\",\"time\":\"" + rs.getString(4)
                     + "\",\"message\":\"" + rs.getString(5)
-                    + "\",\"messageType\":" + rs.getString(6)+","
-                    + "\"background\":\"" + rs.getString(7)
+                    + "\",\"messageType\":\"" + rs.getString(6)
+                    + "\",\"background\":\"" + rs.getString(7)
                     + "\",\"fontColor\":\"" + rs.getString(8)
                     + "\"" + "},";
         }
@@ -126,6 +126,11 @@ public class SQLdemo {
 
         return str;
     }
+
+
+
+
+
 
     public String User(String sql) throws SQLException
     // 连接数据库根据sql语句参数执行查询，并以JSON数组格式返回   用户个人信息

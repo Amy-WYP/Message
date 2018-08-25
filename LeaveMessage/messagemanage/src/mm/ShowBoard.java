@@ -37,7 +37,7 @@ public class ShowBoard extends HttpServlet {
 
         sql_addMessage="insert into message(user_id)values("+ load.id+")";                  //创建留言
 
-        sql_select="SELECT user_id,source,name,DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s') as time,message,messageType,background,fontColor FROM messages where messageType=1";
+        sql_select="SELECT user_id,messageId,name,DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s') as time,message,messageType,background,fontColor FROM messages where messageType='"+1+"'";
 //        sql_select = "SELECT * FROM  messages where messageType=1";
         //CONVERT(CHAR(19), CURRENT_TIMESTAMP, 100)  DATE_FORMAT(time,'%y-%M-%D-%H-%i') as time
 

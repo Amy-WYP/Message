@@ -9,9 +9,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 
+import java.util.*;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONArray;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static mm.DateFormat.*;
 
 
 public class write extends HttpServlet {
@@ -36,9 +43,10 @@ public class write extends HttpServlet {
         String sql_write;
         String sql_update;
         String id = null;                        //用户id
-        String time=null;                        //留言时间
+        String messageId=null;                   //留言id
         String name = null;                      //用户名
         String message = null;                  //留言内容
+        String messageType = null;              //留言类型
         String background=null;                 //留言板背景颜色
         String fontColor=null;                  //留言字体颜色
 
@@ -47,17 +55,20 @@ public class write extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
 
         id = req.getParameter("user_id");                    //获取参数
+        messageId=req.getParameter("messageId");
         name = req.getParameter("name");
-        message=req.getParameter("password");
-        time=req.getParameter("time");
-        background=req.getParameter("bg");
-        fontColor=req.getParameter("fc");
+        message=req.getParameter("message");
+        messageType=req.getParameter("messageType");
+        background=req.getParameter("background");
+        fontColor=req.getParameter("fontColor");
 
 
-        sql_write = "INSERT INTO message(user_id,name,time,message,messageType,background,fontColor)"
-                +"VALUES("+id+",'"+name+"','"+message+"',0,'"+fontColor+"')";
+        sql_write = "INSERT INTO messages(user_id,messageId,name,message,messageType,background,fontColor)" +
+                " VALUES("+id+",'"+messageId+"','"+name+"','"+message+"',"+0+",'"+background+"','"+fontColor+"')";
+
         //对应的更新语句
-        sql_update="SELECT name,time,message,messageType,background,fontColor FROM message where user_id ="+id+"";
+//        sql_update="user_id,name,DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s') as time," +
+//                "message,messageType,background,fontColor FROM messages where user_id ="+id+"";
 
         System.out.println(sql_write);
 
@@ -69,16 +80,16 @@ public class write extends HttpServlet {
             if(	te.executeUpdate(sql_write))
 
             {
-                out.print(te.ShowMessage(sql_update));                                     //返回结果
+                //返回结果
+                System.out.println("write succeed");
             }
-
 
             else {
                 out.print(te.now());
             }
 
 
-            System.out.println("Write Operation succeed");
+            System.out.println("Write Operation write succeed");
 
 
         } catch (Exception e) {
@@ -109,3 +120,6 @@ public class write extends HttpServlet {
     }
 
 }
+
+
+

@@ -21,10 +21,7 @@ public class JudgeMessage extends HttpServlet {
     //主要用于查看留言板留言属性
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String sql_jduge;
-        String sql_add;
-        String aql;
-
+        String sql_judge;
 
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
@@ -36,18 +33,15 @@ public class JudgeMessage extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("UTF-8");
 
-        sql_jduge="SELECT user_id,source,name,DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s') as time,message,messageType,background,fontColor FROM messages where messageType=0";
-
+        sql_judge="SELECT user_id,messageId,name,DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s') as time,message,messageType,background,fontColor FROM messages where messageType='"+0+"'";
 
         try {
             SQLdemo te = new SQLdemo();
 
             System.out.println("Write Operation succeed");
 
-
             PrintWriter out = resp.getWriter();
-            out.print(te.ShowMessage(sql_jduge));                                   //返回 待审核留言信息 给前端
-
+            out.print(te.ShowMessage(sql_judge));                                   //返回 待审核留言信息 给前端
 
         } catch (Exception e) {
             // TODO: handle exception

@@ -1,5 +1,5 @@
 /*
-更新用户信息
+查看留言板
 */
 package mm;
 
@@ -11,21 +11,24 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-public class update_info extends HttpServlet {
+public class judge extends HttpServlet {
     /*
      * (non-Javadoc)
      *
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.
      * HttpServletRequest , javax.servlet.http.HttpServletResponse)
      */
-    //主要用于使用者的信息更改，比如用户账号、用户名、类别、密码
+    //主要用于查看留言板留言属性
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String sql2;
-        String sql3;
+        String sql_judge;
+        String sql_pass;
+        String sql_delete;
+        String messageType;
+        String messageId;
 
-        String name=null;                    //用户名
-        String password=null;                 //密码
+        String pass=null;
+        String delete=null;
 
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
@@ -33,46 +36,38 @@ public class update_info extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "x-requested-with, Content-Type");
         resp.setHeader("Access-Control-Allow-Credentials", "true");
 
-
-        name = req.getParameter("name");                   //获取参数
-        password=req.getParameter("password");
-
-
         resp.setContentType("text/html;charset=utf-8");
         resp.setCharacterEncoding("UTF-8");
 
-        sql2="update user set name='"+name+"' where user_id="+ load.id+"";
-        sql3="update user set password='"+password+"' where user_id="+ load.id+"";
+//        messageType = req.getParameter("messageType");
+        pass=req.getParameter("pass");
+        delete=req.getParameter("dele");
+        messageId = req.getParameter("messageId");
+
+
+        sql_judge="SELECT user_id,messageId,name,DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s') as time,message,messageType,background,fontColor FROM messages";
+
+        sql_delete="update messages set messageType='"+2+"' where messageId='"+ messageId+"'";
+        sql_pass="update messages set messageType='"+1+"' where messageId='"+ messageId+"'";
+
 
         try {
-
             SQLdemo te = new SQLdemo();
 
-            System.out.println(sql2+sql3);
+            System.out.println("Write Operation succeed");
 
             PrintWriter out = resp.getWriter();
+            out.print(te.ShowMessage(sql_judge));
 
-            if(name==null&&password==null)
+            if(pass.equals("pass")&&delete.equals(""))
+            { te.executeUpdate(sql_pass); }
+            else	if(pass.equals("")&&delete.equals("delete"))
             {
+                te.executeUpdate(sql_delete);
             }
 
-            else	if(name!=null&&password==null)
-            {
-                te.executeUpdate(sql2);
-            }
 
-            else	if(name==null&&password!=null)
-            {
-                te.executeUpdate(sql3);
-            }
 
-            else if(name!=null&&password!=null)
-            {
-                te.executeUpdate(sql2);
-                te.executeUpdate(sql3);
-            }
-
-            out.print(te.now());
 
         } catch (Exception e) {
             // TODO: handle exception
@@ -87,3 +82,4 @@ public class update_info extends HttpServlet {
     }
 
 }
+
